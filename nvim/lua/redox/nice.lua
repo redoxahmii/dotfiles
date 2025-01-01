@@ -1,5 +1,6 @@
+---@diagnostic disable: undefined-field
 local M = {}
-
+---@class Tree
 M.set_shada = function()
   local project_dir = vim.fn.stdpath("data") .. "/myshada/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
   if vim.fn.isdirectory(project_dir) == 0 then
@@ -9,6 +10,9 @@ M.set_shada = function()
   vim.opt.shadafile = shadafile
 end
 
+-- {/* <TableCell>
+--   <p className="order-table-text">{row.deliveredDate}</p>
+-- </TableCell> */}
 -- Get the current buffer and remove all comments using treesitter
 M.remove_comments = function()
   local bufnr = vim.api.nvim_get_current_buf()
@@ -21,12 +25,25 @@ M.remove_comments = function()
 (comment) @comment
 ]]
   )
-  for _, match, _ in query:iter_matches(tree:root(), bufnr) do
-    local start_row, start_col, end_row, end_col = match[1]:range()
-    vim.api.nvim_buf_set_text(bufnr, start_row, start_col, end_row, end_col, { "" })
+
+  for _, match in query:iter_matches(tree:root(), bufnr) do
+    local comment_node = match[1]
+
+    local parent = comment_node:parent()
+    local is_jsx_comment = false
+
+    if parent and parent:type() == "jsx_expression" then
+      is_jsx_comment = true
+    end
+    if not is_jsx_comment then
+      local start_row, start_col, end_row, end_col = comment_node:range()
+      vim.api.nvim_buf_set_text(bufnr, start_row, start_col, end_row, end_col, { "" })
+    end
   end
-  -- Should save the file after removing comments
-  vim.cmd("update")
+
+  -- Format buf
+  require("conform").format({ bufnr = bufnr })
 end
 
+-- when i comment a <div> tag, it should also comment the corresponding </div> tag
 return M

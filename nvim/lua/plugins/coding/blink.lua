@@ -3,14 +3,15 @@ return {
     "saghen/blink.cmp",
     --@module 'blink.cmp'
     --@type blink.cmp.Config
-    dependencies = {
-      {
-        "saghen/blink.compat",
-        -- optional = true, -- make optional so it's only enabled if any extras need it
-        opts = {},
-        version = not vim.g.lazyvim_blink_main and "*",
-      },
-    },
+    -- dependencies = {
+    --   {
+    --     "saghen/blink.compat",
+    --     -- optional = true, -- make optional so it's only enabled if any extras need it
+    --     dev = true, -- make dev optional so it's only enabled if you're using nvim-dev
+    --     opts = {},
+    --     version = not vim.g.lazyvim_blink_main and "*",
+    --   },
+    -- },
     opts = {
       sources = {
         cmdline = function()
@@ -50,7 +51,7 @@ return {
         -- },
         documentation = {
           auto_show = true,
-          auto_show_delay_ms = 0,
+          auto_show_delay_ms = 200,
           update_delay_ms = 0,
         },
       },

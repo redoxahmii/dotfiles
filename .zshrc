@@ -64,6 +64,8 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+# Setting this option makes zsh-autocomplete work(not sure what this does)
+setopt interactive_comments
 
 # Completion styling
  zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -71,7 +73,6 @@ setopt hist_find_no_dups
  zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
  zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:*' switch-group '<' '>'
-
 # Aliases
 export NVM_DIR=~/.nvm
  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"

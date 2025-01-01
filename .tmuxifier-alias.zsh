@@ -15,7 +15,6 @@ eval "$(tmuxifier init -)"
 export EDITOR=nvim
 # alias vim=nvim
 alias w=nvim
-alias gedit=gnome-text-editor
 alias dotfiles="cd ~/git-pkg/dotfiles/"
 alias clr=clear
 alias c=clear

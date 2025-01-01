@@ -1,8 +1,10 @@
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
-local nice = require("redox.nice")
 
-map("n", "<leader>rr", nice.remove_comments, { desc = "Remove comments" })
+map("n", "<leader>rr", require("redox.nice").remove_comments, { desc = "Remove comments" })
+
+--INFO: set ft to bigfile so snacks.nvim disables all highlighting and treesitter
+map("n", "<leader>uB", "<cmd>set ft=bigfile<CR>", { desc = "Big file" })
 
 --INFO: Replace hex with HSL
 map("n", "<leader>rh", function()
@@ -33,9 +35,6 @@ map("n", "yc", "yy<cmd>normal gcc<CR>p", { desc = "Yank and copy" })
 -- map("n", "<C-k>", function()
 --   signs.nav_hunk("prev")
 -- end, opts)
-
---INFO: Delete backwards (will remove cause don't use much)
-map("n", "dw", 'vb"_d')
 
 --INFO: center
 map("n", "<C-d>", "<C-d>zz", opts)

@@ -8,6 +8,7 @@ return {
         handler = function()
           vim.cmd([[
           setlocal relativenumber
+          setlocal numberwidth=1
         ]])
         end,
       },

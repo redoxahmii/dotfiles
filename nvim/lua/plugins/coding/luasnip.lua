@@ -7,4 +7,5 @@ return {
       { "<s-tab>", false, mode = { "i", "s" } },
     },
   },
+  require("luasnip").filetype_extend("javascript", { "javascriptreact" }),
 }

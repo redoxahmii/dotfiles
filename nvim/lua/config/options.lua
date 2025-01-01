@@ -1,6 +1,5 @@
 require("redox.nice").set_shada()
-vim.opt.scrolloff = 10
-vim.opt.showmode = false
+-- vim.opt.scrolloff = 10
 vim.g.leader = " "
 vim.opt.diffopt = "vertical"
 vim.opt.wildignore:append({ "*/node_modules/*" })
@@ -9,7 +8,7 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 -- vim.opt.list = true
 -- vim.opt.listchars = { tab = "» ", trail = "·", eol = "↲" }
 
--- INFO: project-specific global marks
+-- INFO: dumb idea for portfolio
 
 -- local function get_buffer_name()
 --   local buffer_path = vim.api.nvim_buf_get_name(0)

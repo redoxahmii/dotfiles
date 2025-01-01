@@ -30,7 +30,7 @@ return {
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = true,
-    dev = true,
+    dev = false,
     -- opts = {
     --   styles = {
     --     sidebars = "transparent",
@@ -60,6 +60,8 @@ return {
           hl.LineNrAbove = { fg = c.orange700 }
           hl.LineNrBelow = { fg = c.orange700 }
           hl.BlinkCmpMenu = { fg = c.base01, bg = c.none }
+          hl.SkActive = { fg = c.yellow, bg = c.base03 }
+          hl.SkInactive = { fg = c.orange, bg = c.base03 }
         end,
       })
     end,

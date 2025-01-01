@@ -4,7 +4,7 @@ return {
     "epwalsh/obsidian.nvim",
     -- version = "*",
     lazy = true,
-    dev = true,
+    dev = false,
     cmd = "ObsidianQuickSwitch",
     ft = "markdown",
     keys = {
