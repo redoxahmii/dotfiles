@@ -6,6 +6,13 @@ return {
     opts = {
       inlay_hints = { enabled = false },
       servers = {
+        emmet_language_server = {
+          filetypes = {
+            "javascript",
+            "typescript",
+            "vue",
+          },
+        },
         lua_ls = {
           settings = {
             Lua = {

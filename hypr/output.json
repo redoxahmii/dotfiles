@@ -1,0 +1,284 @@
+{
+  "keybinds": [
+    {
+      "modifier": "ALT CONTROL",
+      "key": "T",
+      "action": "exec",
+      "value": "Kitty",
+      "comment": "Open Terminal"
+    },
+    {
+      "modifier": "ALT",
+      "key": "T",
+      "action": "exec",
+      "value": "Kitty",
+      "comment": "Open Terminal"
+    },
+    {
+      "modifier": "ALT",
+      "key": "Q",
+      "action": "killactive",
+      "value": null,
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "F",
+      "action": "exec",
+      "value": "Firefox",
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "M",
+      "action": "exit",
+      "value": "",
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "E",
+      "action": "exec",
+      "value": "Dolphin",
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "V",
+      "action": "togglefloating",
+      "value": null,
+      "comment": null
+    },
+    {
+      "modifier": "SUPER SHIFT",
+      "key": "F",
+      "action": "fullscreenstate",
+      "value": "0 2",
+      "comment": null
+    },
+    {
+      "modifier": "SUPER",
+      "key": "F",
+      "action": "fullscreen",
+      "value": "1",
+      "comment": null
+    },
+    {
+      "modifier": "SUPER CONTROL",
+      "key": "F",
+      "action": "fullscreen",
+      "value": null,
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "R",
+      "action": "exec",
+      "value": "pkill -x rofi || ~/.config/rofi//scripts/launcher_t6",
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "SPACE",
+      "action": "exec",
+      "value": "pkill -x rofi || ~/.config/rofi//scripts/launcher_t6",
+      "comment": null
+    },
+    {
+      "modifier": "SUPER",
+      "key": "V",
+      "action": "exec",
+      "value": "pkill -x rofi || ~/.config/rofi//launchers/type-6/launcher3.sh",
+      "comment": null
+    },
+    {
+      "modifier": "ALT CONTROL",
+      "key": "L",
+      "action": "exec",
+      "value": "pkill -x rofi || ~/.config/rofi//scripts/powermenu_t5",
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "TAB",
+      "action": "exec",
+      "value": "pkill -x rofi || ~/.config/rofi//launchers/type-6/launcher2.sh",
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "P",
+      "action": "pseudo",
+      "value": "",
+      "comment": "dwindle"
+    },
+    {
+      "modifier": "ALT",
+      "key": "J",
+      "action": "togglesplit",
+      "value": "",
+      "comment": "dwindle"
+    },
+    {
+      "modifier": "SUPER",
+      "key": "B",
+      "action": "exec",
+      "value": "~/.config/hypr//scripts/powerprofiles.sh &",
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "W",
+      "action": "exec",
+      "value": "~/.config/hypr//scripts/waybar_toggle.sh &",
+      "comment": null
+    },
+    {
+      "modifier": "SUPER",
+      "key": "N",
+      "action": "exec",
+      "value": "dunstctl close-all",
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "h",
+      "action": "movefocus",
+      "value": "l",
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "j",
+      "action": "movefocus",
+      "value": "r",
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "k",
+      "action": "movefocus",
+      "value": "u",
+      "comment": null
+    },
+    {
+      "modifier": "ALT",
+      "key": "l",
+      "action": "movefocus",
+      "value": "d",
+      "comment": null
+    },
+    {
+      "modifier": "CONTROL",
+      "key": "1",
+      "action": "workspace",
+      "value": "1",
+      "comment": null
+    },
+    {
+      "modifier": "CONTROL",
+      "key": "2",
+      "action": "workspace",
+      "value": "2",
+      "comment": null
+    },
+    {
+      "modifier": "CONTROL",
+      "key": "3",
+      "action": "workspace",
+      "value": "3",
+      "comment": null
+    },
+    {
+      "modifier": "CONTROL",
+      "key": "4",
+      "action": "workspace",
+      "value": "4",
+      "comment": null
+    },
+    {
+      "modifier": "CONTROL",
+      "key": "5",
+      "action": "workspace",
+      "value": "5",
+      "comment": null
+    },
+    {
+      "modifier": "CONTROL SHIFT",
+      "key": "1",
+      "action": "movetoworkspace",
+      "value": "1",
+      "comment": null
+    },
+    {
+      "modifier": "CONTROL SHIFT",
+      "key": "2",
+      "action": "movetoworkspace",
+      "value": "2",
+      "comment": null
+    },
+    {
+      "modifier": "CONTROL SHIFT",
+      "key": "3",
+      "action": "movetoworkspace",
+      "value": "3",
+      "comment": null
+    },
+    {
+      "modifier": "CONTROL SHIFT",
+      "key": "4",
+      "action": "movetoworkspace",
+      "value": "4",
+      "comment": null
+    },
+    {
+      "modifier": "CONTROL SHIFT",
+      "key": "5",
+      "action": "movetoworkspace",
+      "value": "5",
+      "comment": null
+    },
+    {
+      "modifier": "",
+      "key": "PRINT",
+      "action": "exec",
+      "value": "pkill -x rofi || ~/.config/rofi//applets/bin/screenshot.sh",
+      "comment": null
+    },
+    {
+      "modifier": "SUPER",
+      "key": "S",
+      "action": "togglespecialworkspace",
+      "value": "magic",
+      "comment": null
+    },
+    {
+      "modifier": "SUPER SHIFT",
+      "key": "S",
+      "action": "movetoworkspace",
+      "value": "special:magic",
+      "comment": null
+    },
+    {
+      "modifier": "SUPER",
+      "key": "mouse_down",
+      "action": "workspace",
+      "value": "e+1",
+      "comment": null
+    },
+    {
+      "modifier": "SUPER",
+      "key": "mouse_up",
+      "action": "workspace",
+      "value": "e-1",
+      "comment": null
+    },
+    {
+      "modifier": "SUPER",
+      "key": "R",
+      "action": "pass",
+      "value": "^(com\\.obsproject\\.Studio)$",
+      "comment": null
+    }
+  ]
+}

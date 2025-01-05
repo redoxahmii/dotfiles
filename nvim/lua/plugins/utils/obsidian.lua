@@ -29,6 +29,14 @@ return {
       ui = {
         enable = false,
       },
+      disable_frontmatter = function()
+        -- get name of current file
+        local file_name = vim.fn.expand("%:t")
+        if file_name == "daily.md" then
+          return true
+        end
+      end,
+
       templates = {
         debug = true,
         folder = "~/Code/Obsidian/Templates",

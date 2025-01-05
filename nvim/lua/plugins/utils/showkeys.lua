@@ -7,8 +7,9 @@ return {
       timeout = 1,
       maxkeys = 8,
       show_count = false,
+      winhl = "FloatBorder:WhichKeyBorder,Normalfloat:Normal",
       -- bottom-left, bottom-right, bottom-center, top-left, top-right, top-center
-      position = "bottom-right",
+      position = "bottom-center",
       winopts = {
         focusable = false,
         relative = "editor",

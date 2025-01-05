@@ -54,6 +54,30 @@ return {
               Snacks.gitbrowse()
             end,
           },
+          -- {
+          --   pane = 2,
+          --   icon = " ",
+          --   desc = "Browse Todos",
+          --   key = "d",
+          --   action = function()
+          --     vim.cmd("edit ~/Code/Obsidian/daily.md")
+          --   end,
+          -- },
+          {
+            pane = 2,
+            icon = " ",
+            desc = "Browse Todos",
+            indent = 3,
+            key = "d",
+            action = function()
+              vim.cmd("edit ~/Code/Obsidian/daily.md")
+            end,
+            section = "terminal",
+            cmd = "bat --theme 'Solarized (dark)' -p ~/Code/Obsidian/daily.md",
+            ttl = 60,
+            height = 10,
+          },
+
           function()
             local in_git = Snacks.git.get_root() ~= nil
             local cmds = {
@@ -65,31 +89,33 @@ return {
                 end,
                 key = "n",
                 icon = " ",
-                height = 5,
+                height = 8,
                 enabled = true,
               },
-              {
-                title = "Open Issues",
-                cmd = "gh issue list -L 3",
-                key = "i",
-                action = function()
-                  vim.fn.jobstart("gh issue list --web", { detach = true })
-                end,
-                icon = " ",
-                height = 7,
-              },
-              {
-                icon = " ",
-                title = "Open PRs",
-                cmd = "gh pr list -L 3",
-                key = "p",
-                action = function()
-                  vim.fn.jobstart("gh pr list --web", { detach = true })
-                end,
-                height = 7,
-              },
+              -- {
+              --   title = "Open Issues",
+              --   cmd = "gh issue list -L 3",
+              --   key = "i",
+              --   action = function()
+              --     vim.fn.jobstart("gh issue list --web", { detach = true })
+              --   end,
+              --   icon = " ",
+              --   height = 7,
+              -- },
+              -- {
+              --   icon = " ",
+              --   title = "Open PRs",
+              --   cmd = "gh pr list -L 3",
+              --   key = "p",
+              --   action = function()
+              --     vim.fn.jobstart("gh pr list --web", { detach = true })
+              --   end,
+              --   height = 7,
+              -- },
               {
                 icon = " ",
+                section = "terminal",
+                pane = 2,
                 title = "Git Status",
                 cmd = "git --no-pager diff --stat -B -M -C",
                 height = 8,

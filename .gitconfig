@@ -1,0 +1,31 @@
+[core]
+  pager = delta
+
+[delta]
+    features = solarized-dark
+    paging = never
+
+[delta "solarized-dark"]
+    dark = true
+    file-style = omit
+    hunk-header-decoration-style = omit
+    hunk-header-file-style = magenta
+    hunk-header-line-number-style = dim magenta
+    hunk-header-style = file line-number syntax
+    line-numbers = false
+    minus-emph-style = bold red 52
+    minus-empty-line-marker-style = normal "#3f0001"
+    ; minus-non-emph-style = dim red
+    ; minus-style = bold red
+    whitespace-error-style = reverse red
+    zero-style = dim syntax
+    syntax-theme = Solarized (dark)
+
+[includeIf "gitdir:~/Code/"]
+  path = ~/Code/.gitconfig-personal
+[includeIf "gitdir:~/git-pkg/"]
+  path = ~/Code/.gitconfig-personal
+[includeIf "gitdir:~/Nabeel/"]
+  path = ~/Nabeel/.gitconfig-nabeel
+[includeIf "gitdir:~/Hamza/"]
+  path = ~/Hamza/.gitconfig-hamza

@@ -6,7 +6,7 @@ play = [{ run = 'vlc "$@"' }]
 
 [plugin]
 prepend_previewers = [
-  # Archive previewer
+
   { mime = "application/*zip", run = "ouch" },
   { mime = "application/x-tar", run = "ouch" },
   { mime = "application/x-bzip2", run = "ouch" },
