@@ -29,7 +29,6 @@ function parseConfFile(filePath) {
     if (bindMatch) {
       let [_, modifier, key, action, value = null] = bindMatch;
 
-      // Replace variables in modifier
       modifier = modifier.trim();
       for (const [variable, replacement] of Object.entries(
         modifierReplacements,
@@ -42,7 +41,6 @@ function parseConfFile(filePath) {
         }
       }
 
-      // Also check for variables in action and value
       action = action.trim();
       if (value) {
         value = value.trim();
@@ -72,7 +70,6 @@ function parseConfFile(filePath) {
   return { keybinds };
 }
 
-// Helper function to escape special characters in regex
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }

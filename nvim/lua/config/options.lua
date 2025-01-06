@@ -3,6 +3,7 @@ require("redox.nice").set_shada()
 vim.g.leader = " "
 vim.opt.diffopt = "vertical"
 vim.opt.wildignore:append({ "*/node_modules/*" })
+-- vim.g.lightline = { colorscheme = "solarized_osaka" }
 -- vim.g.lazyvim_prettier_needs_config = false
 -- vim.opt.cursorline = false
 -- vim.opt.list = true

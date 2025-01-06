@@ -25,6 +25,13 @@ return {
       { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua", desc = "Stop LÖVE" },
     },
   },
+  -- {
+  --   "itchyny/lightline.vim",
+  -- },
+  -- {
+  --   "lualine.nvim",
+  --   enabled = false,
+  -- },
 
   -- {
   --   "stevearc/conform.nvim",
