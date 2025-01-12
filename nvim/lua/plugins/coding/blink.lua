@@ -1,8 +1,6 @@
 return {
   {
     "saghen/blink.cmp",
-    --@module 'blink.cmp'
-    --@type blink.cmp.Config
     -- dependencies = {
     --   {
     --     "saghen/blink.compat",
@@ -12,7 +10,13 @@ return {
     --     version = not vim.g.lazyvim_blink_main and "*",
     --   },
     -- },
+    --@module 'blink.cmp'
+    --@type blink.cmp.Config
     opts = {
+      keymap = {
+        ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+      },
       sources = {
         cmdline = function()
           local type = vim.fn.getcmdtype()
@@ -39,9 +43,9 @@ return {
             columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
           },
         },
-        list = {
-          selection = "preselect",
-        },
+        -- list = {
+        --   selection = { preselect = true },
+        -- },
         -- trigger = {
         --   -- prefetch_on_insert = true,
         --   -- show_on_accept_on_trigger_character = false,

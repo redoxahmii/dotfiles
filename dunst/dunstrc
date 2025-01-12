@@ -1,10 +1,11 @@
+# vim: ft=cfg
 # For defaults and description of each option, see the link bellow
 # https://github.com/dunst-project/dunst/blob/master/dunstrc
-# FIX: icon_path
 [global]
 # Display
 follow = mouse
 width = 350
+layer = top
 height = (0, 300)
 origin = top-right
 offset = (35, 35)
@@ -47,7 +48,7 @@ dmenu = rofi --show drun --prompt 'Open with'
 corner_radius = 10
 
 # Mouse
-mouse_left_click = close_current
+mouse_left_click = do_action,close_current
 mouse_middle_click = do_action, close_current
 mouse_right_click = close_all
 
@@ -67,10 +68,16 @@ foreground = "#dc322f"
 background = "#002b36"
 timeout = 0
 
-# Rules
-[fullscreen_delay_everything]
-fullscreen = delay
 
-[fullscreen_show_critical]
-msg_urgency = critical
 fullscreen = show
+# Rules
+# [fullscreen_delay_everything]
+# fullscreen = delay
+# [fullscreen_show_critical]
+# msg_urgency = critical
+# fullscreen = show
+
+[play_sound]
+    summary = "Pomodoro"
+    urgency = critical
+    script = ~/.config/dunst/scripts/sound.sh

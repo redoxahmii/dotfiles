@@ -26,14 +26,6 @@ return {
     },
   },
   -- {
-  --   "itchyny/lightline.vim",
-  -- },
-  -- {
-  --   "lualine.nvim",
-  --   enabled = false,
-  -- },
-
-  -- {
   --   "stevearc/conform.nvim",
   --   opts = {
   --     formatters = {

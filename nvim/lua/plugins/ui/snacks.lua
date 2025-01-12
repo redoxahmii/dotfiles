@@ -87,7 +87,7 @@ return {
                 action = function()
                   vim.ui.open("https://github.com/notifications")
                 end,
-                key = "n",
+                -- key = "n",
                 icon = " ",
                 height = 8,
                 enabled = true,

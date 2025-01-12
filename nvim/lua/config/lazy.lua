@@ -46,7 +46,7 @@ require("lazy").setup({
 
   checker = {
     enabled = true,
-    frequency = 604800,
+    -- frequency = 604800,
   },
 
   dev = {

@@ -24,6 +24,14 @@ elif [ "$current_state" == "performance" ]; then
   else
     dunstify -u critical -i dialog-error "Power Profile" "Failed to switch to balanced"
   fi
+elif [ "$current_state" == "power-saver" ]; then
+  powerprofilesctl set balanced
+  if [ $? -eq 0 ]; then
+    dunstify -u low -h string:x-dunst-stack-tag:powerprofile -i battery-good \
+      "Power Profile" "Switched to <b>Balanced</b>"
+  else
+    dunstify -u critical -i dialog-error "Power Profile" "Failed to switch to balanced"
+  fi
 else
   dunstify -u normal -i dialog-warning "Power Profile" "Unknown state: <b>$current_state</b>"
 fi

@@ -9,6 +9,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export GOPATH=$HOME/go/
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.config/tmux/plugins/tmuxifier/bin
+export PATH=$PATH:$HOME/.local/bin/
 alias sudoedit='sudo -e'
 
 eval "$(tmuxifier init -)"
@@ -34,7 +35,10 @@ alias wscreenkey="GDK_BACKEND=x11 screenkey"
 alias e="exit"
 alias f="fzf"
 alias lg="lazygit"
+alias tt="taskwarrior-tui"
 alias ls="eza --color=always --icons=always --no-user"
+alias l="eza --color=always --icons=always --no-user"
+alias ll="eza --color=always --icons=always --no-user -a"
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git "
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
