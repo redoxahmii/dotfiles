@@ -63,6 +63,7 @@ window#waybar {
 #memory:hover,
 #network:hover,
 #pulseaudio:hover,
+#custom-pomodoro:hover,
 #custom-spotify:hover {
   background: rgba(255, 255, 255, 0.1); /* Subtle highlight on hover */
   color: #93a1a1; /* Solarized base1 (lighter gray) on hover */
@@ -144,4 +145,23 @@ window#waybar {
 /* Tray module */
 #tray {
   color: #eee8d5; /* Solarized base0 */
+}
+
+/* ""          -   timer has not yet been started */
+/* "pause"     -   timer has been paused */
+/* "work"      -   timer is currently in a work cycle */
+/* "break"     -   timer is currently in a break cycle, either a short or long one */
+
+#custom-pomodoro.pause {
+  color: #dc322f; /* Solarized red */
+}
+#custom-pomodoro {
+  color: #93a1a1; /* Solarized base3 (brightest) */
+}
+#custom-pomodoro.work {
+  color: #859900; /* Solarized green */
+}
+
+#custom-pomodoro.break {
+  color: #b58900; /* Solarized yellow */
 }
