@@ -21,6 +21,9 @@ return {
           },
         },
         vtsls = {
+          -- root_dir = function(...)
+          --   return require("lspconfig.util").root_pattern(".git")(...)
+          -- end,
           settings = {
             implicitProjectConfiguration = {
               checkJs = true,

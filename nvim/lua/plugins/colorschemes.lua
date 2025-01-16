@@ -5,6 +5,7 @@ return {
     "folke/tokyonight.nvim",
     lazy = true,
     dev = false,
+    enabled = false,
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require("tokyonight").setup({
@@ -22,22 +23,13 @@ return {
   },
   {
     "catppuccin",
-    opts = {
-      flavour = "frappe",
-      transparent_background = true,
-    },
+    enabled = false,
   },
   --- [INFO: Add rainbow markdown colors to solarized-osaka]
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = true,
     dev = false,
-    -- opts = {
-    --   styles = {
-    --     sidebars = "transparent",
-    --     floats = "transparent",
-    --   },
-    -- },
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require("solarized-osaka").setup({

@@ -16,31 +16,26 @@ require("lazy").setup({
   spec = {
 
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
-
     { import = "lazyvim.plugins.extras.lang.tailwind" },
-
     { import = "lazyvim.plugins.extras.vscode" },
-
     { import = "lazyvim.plugins.extras.linting.eslint" },
-
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.editor.dial" },
     { import = "lazyvim.plugins.extras.editor.inc-rename" },
-
     { import = "lazyvim.plugins.extras.formatting.prettier" },
-
     { import = "plugins" },
     { import = "plugins.coding" },
     { import = "plugins.ui" },
     { import = "plugins.utils" },
+    {
+      "craftzdog/solarized-osaka.nvim",
+      opts = {},
+    },
   },
   defaults = {
-
     lazy = false,
-
     version = false,
   },
 
@@ -54,7 +49,6 @@ require("lazy").setup({
   },
   performance = {
     rtp = {
-
       disabled_plugins = {
         "gzip",
         "matchit",

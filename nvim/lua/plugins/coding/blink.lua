@@ -1,29 +1,70 @@
 return {
   {
+    "saghen/blink.compat",
+    version = "*",
+    lazy = true,
+    opts = {},
+  },
+  {
     "saghen/blink.cmp",
-    -- dependencies = {
-    --   {
-    --     "saghen/blink.compat",
-    --     -- optional = true, -- make optional so it's only enabled if any extras need it
-    --     dev = true, -- make dev optional so it's only enabled if you're using nvim-dev
-    --     opts = {},
-    --     version = not vim.g.lazyvim_blink_main and "*",
-    --   },
-    -- },
-    --@module 'blink.cmp'
-    --@type blink.cmp.Config
+    dependencies = {
+      -- {
+      --   "Kaiser-Yang/blink-cmp-dictionary",
+      --   dependencies = { "nvim-lua/plenary.nvim" },
+      -- },
+      {
+        "chrisgrieser/cmp_yanky",
+      },
+    },
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
       keymap = {
         ["<C-u>"] = { "scroll_documentation_up", "fallback" },
         ["<C-d>"] = { "scroll_documentation_down", "fallback" },
       },
       sources = {
+        default = {
+          "lsp",
+          "path",
+          "snippets",
+          "buffer",
+          -- "dictionary",
+          "cmp_yanky",
+        },
+        providers = {
+          cmp_yanky = {
+            module = "blink.compat.source",
+            name = "cmp_yanky",
+            score_offset = -2,
+            min_keyword_length = 3,
+          },
+          -- dictionary = {
+          --   module = "blink-cmp-dictionary",
+          --   name = "Dict",
+          --   min_keyword_length = 3,
+          --   score_offset = 2,
+          --   opts = {
+          --     dictionary_directories = { vim.fn.expand("~/.config/nvim/lua/redox/dictionaries/") },
+          --     separate_output = function(output)
+          --       local items = {}
+          --       for line in output:gmatch("[^\r\n]+") do
+          --         table.insert(items, {
+          --           label = line,
+          --           insert_text = line,
+          --           documentation = nil,
+          --         })
+          --       end
+          --       return items
+          --     end,
+          --   },
+          -- },
+        },
         cmdline = function()
           local type = vim.fn.getcmdtype()
-          -- Search forward and backward
           if type == "/" or type == "?" then
             return {}
-            -- This shows buffer completions in search but i hate it
+            -- INFO:This shows buffer completions in search but i hate it
             -- return {"Buffer"}
           end
           -- Commands

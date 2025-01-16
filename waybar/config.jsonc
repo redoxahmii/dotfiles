@@ -85,8 +85,9 @@
     "on-click": "$HOME/.config/waybar/scripts/waybar-battery.sh"
   },
   "network": {
-    "format-wifi": "{essid} ({signalStrength}%)  ",
+    "format-wifi": "{essid} ({bandwidthDownBytes}) ",
     "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
     "format-disconnected": "Disconnected  ⚠",
     "on-click": "nm-connection-editor"
   },
