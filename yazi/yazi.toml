@@ -1,6 +1,7 @@
 [manager]
 linemode = "size"
 ratio = [2, 4, 3]
+sort_by = "extension"
 [opener]
 play = [{ run = 'vlc "$@"' }]
 
