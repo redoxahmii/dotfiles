@@ -73,7 +73,8 @@ return {
               vim.cmd("edit ~/Code/Obsidian/daily.md")
             end,
             section = "terminal",
-            cmd = "bat --theme 'Solarized (dark)' -p ~/Code/Obsidian/daily.md",
+            -- cmd = "bat --theme 'Solarized (dark)' -p ~/Code/Obsidian/daily.md",
+            cmd = "task next",
             ttl = 60,
             height = 10,
           },

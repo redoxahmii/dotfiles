@@ -1,3 +1,4 @@
+---@diagnostic disable: invisible
 local M = {}
 
 local function get_language_tree_for_cursor_location()

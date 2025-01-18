@@ -29,10 +29,6 @@ require("lazy").setup({
     { import = "plugins.coding" },
     { import = "plugins.ui" },
     { import = "plugins.utils" },
-    {
-      "craftzdog/solarized-osaka.nvim",
-      opts = {},
-    },
   },
   defaults = {
     lazy = false,

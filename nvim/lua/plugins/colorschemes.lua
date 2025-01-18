@@ -56,6 +56,8 @@ return {
           hl.BlinkCmpMenu = { fg = c.base01, bg = c.none }
           hl.SkActive = { fg = c.cyan, bg = c.base03 }
           hl.SkInactive = { fg = c.magenta, bg = c.base03 }
+          -- hl.NeoWarrior = { fg = c.cyan, bg = c.none }
+          -- hl.NeoWarriorTextDim = { fg = "#6e6a86", bg = nil }
         end,
       })
     end,

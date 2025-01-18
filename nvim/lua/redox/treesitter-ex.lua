@@ -1,3 +1,4 @@
+---@diagnostic disable: need-check-nil
 local remove_comments = function()
   local buf = vim.api.nvim_get_current_buf()
   local filetype = vim.bo.filetype
