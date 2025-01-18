@@ -1,4 +1,3 @@
-/* General settings */
 * {
   border: none;
   border-radius: 0;
@@ -21,37 +20,14 @@ window#waybar {
 #battery,
 #cpu,
 #memory,
+#custom-pomodoro,
+#custom-power-toggle,
 #network,
 #pulseaudio,
 #custom-spotify {
   border-radius: 20px; /* Pill shape */
-  padding: 0 10px; /* Consistent padding */
-  /* margin: 0 5px; */
+  padding: 0 8px; /* Consistent padding */
   transition: all 0.3s ease-in-out;
-}
-
-.modules-left {
-  /* background: #002b36; */
-  border-radius: 20px;
-  /* padding: 0 10px; */
-  /* margin: 0 5px; */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-}
-
-/* .modules-center { */
-/*   background: #002b36; */
-/*   border-radius: 20px; */
-/*   padding: 0 10px; */
-/*   margin: 0 5px; */
-/*   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
-/* } */
-
-.modules-right {
-  /* background: #002b36; */
-  border-radius: 20px;
-  padding: 0 10px;
-  margin: 0 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
 }
 
 /* Focused and hover effects */
@@ -64,9 +40,23 @@ window#waybar {
 #network:hover,
 #pulseaudio:hover,
 #custom-pomodoro:hover,
+#custom-power-toggle:hover,
 #custom-spotify:hover {
   background: rgba(255, 255, 255, 0.1); /* Subtle highlight on hover */
   color: #93a1a1; /* Solarized base1 (lighter gray) on hover */
+}
+
+.modules-left {
+  border-radius: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.modules-right {
+  /* background: #002b36; */
+  border-radius: 20px;
+  padding: 0 10px;
+  margin: 0 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Workspaces module */
@@ -160,6 +150,11 @@ window#waybar {
 }
 #custom-pomodoro.work {
   color: #859900; /* Solarized green */
+}
+
+#custom-power-toggle {
+  color: #d33682;
+  /* color: #6c71c4; */
 }
 
 #custom-pomodoro.break {

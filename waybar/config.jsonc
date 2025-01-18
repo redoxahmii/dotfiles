@@ -13,6 +13,7 @@
   },
   "modules-right": [
     "custom/pomodoro",
+    "custom/power-toggle",
     "pulseaudio",
     "network",
     "cpu",
@@ -47,16 +48,19 @@
   "hyprland/window": {
     "separate-outputs": true,
     "truncate-text": true,
-    // "rewrite": {
-    //   "(.*) — Mozilla Firefox": " &#x202c;$1",
-    //   // "tmux": "> [$1]",
-    //   "ta": "🌎"
-    // },
-    // window#waybar.solo
+    "rewrite": {
+      "(.*) — Mozilla Firefox": " &#x202c;$1",
+      "w .": "Coding  &#x202c;",
+      "Stremio - (.*)": "🎥 &#x202c;$1",
+      "firefox": " &#x202c;",
+      "kitty": " &#x202c;",
+      "VLC media player": "󰕼 &#x202c;$1",
+      "(.*) - VLC media player": "󰕼 &#x202c;$1"
+    },
     "truncate-text-limit": 30
   },
   "tray": {
-    // "icon-size": 21,
+    "icon-size": 20,
     "spacing": 10
   },
   "clock": {
@@ -85,9 +89,9 @@
     "on-click": "$HOME/.config/waybar/scripts/waybar-battery.sh"
   },
   "network": {
-    "format-wifi": "{essid} ({bandwidthDownBytes}) ",
+    "format-wifi": "{essid} ",
     "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
-    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+    "tooltip-format-wifi": "{essid} ({bandwidthDownBytes}) ({signalStrength}%)",
     "format-disconnected": "Disconnected  ⚠",
     "on-click": "nm-connection-editor"
   },
@@ -107,6 +111,14 @@
       "default": ["", ""]
     },
     "on-click": "pavucontrol"
+  },
+  "custom/power-toggle": {
+    "format": "{} ",
+    "max-length": 20,
+    "interval": 20,
+    "signal": 10,
+    "exec": "$HOME/.config/waybar/scripts/power-info.sh",
+    "on-click": "$HOME/.config/waybar/scripts/power-toggle.sh; pkill -SIGRTMIN+10 waybar"
   },
   "custom/spotify": {
     "format": "{}",
