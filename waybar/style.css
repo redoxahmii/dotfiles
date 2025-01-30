@@ -56,9 +56,8 @@ window#waybar {
   border-radius: 20px;
   padding: 0 10px;
   margin: 0 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
 }
-
 /* Workspaces module */
 #workspaces button {
   background: transparent;
@@ -156,7 +155,6 @@ window#waybar {
   color: #d33682;
   /* color: #6c71c4; */
 }
-
 #custom-pomodoro.break {
   color: #b58900; /* Solarized yellow */
 }

@@ -5,8 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 source $HOME/.tmuxifier-alias.zsh
-
-
+cursor() {
+  nohup cursor "$@" > /dev/null 2>&1 &
+  disown
+}
 # if [[ -f "/opt/homebrew/bin/brew" ]] then
 #   # If you're using macOS, you'll want this enabled
 #   eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -73,6 +75,28 @@ setopt interactive_comments
  zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
  zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:*' switch-group '<' '>'
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --layout=reverse \
+  --border=none
+  --color=bg+:#002c38 \
+  --color=border:#063540 \
+  --color=fg:#9eabac \
+  --color=gutter:#001419 \
+  --color=header:#c94c16 \
+  --color=hl+:#c94c16 \
+  --color=hl:#c94c16 \
+  --color=info:#637981 \
+  --color=marker:#c94c16 \
+  --color=pointer:#c94c16 \
+  --color=prompt:#c94c16 \
+  --color=query:#9eabac:regular \
+  --color=scrollbar:#063540 \
+  --color=separator:#063540 \
+  --color=spinner:#c94c16 \
+"
 # Aliases
 export NVM_DIR=~/.nvm
  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"

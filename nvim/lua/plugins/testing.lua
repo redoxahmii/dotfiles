@@ -1,6 +1,7 @@
 return {
   {
     "kawre/leetcode.nvim",
+    lazy = true,
     build = ":TSUpdate html",
     dependencies = {
       "ibhagwan/fzf-lua",
@@ -13,11 +14,10 @@ return {
       image_support = true,
     },
   },
-  -- TODO: opened PR on main branch and should have some issues so have to wait for it to remove `telescope.nvim` as dep
   {
     "duckdm/neowarrior.nvim",
     dev = true,
-    lazy = false,
+    cmd = "NeoWarriorOpen",
     opts = {
       colors = {
         neowarrior = { group = "TroubleIconField" },

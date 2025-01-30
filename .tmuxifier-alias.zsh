@@ -1,17 +1,15 @@
 # export QT_QPA_PLATFORMTHEME=qt5ct
+# Open cursor and detach
 export ANDROID_HOME=$HOME/Android/Sdk
 
 export PATH=$PATH:$ANDROID_HOME/emulator
-
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-
 export PATH=$PATH:$ANDROID_HOME/tools
 export GOPATH=$HOME/go/
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.config/tmux/plugins/tmuxifier/bin
 export PATH=$PATH:$HOME/.local/bin/
 alias sudoedit='sudo -e'
-
 eval "$(tmuxifier init -)"
 export EDITOR=nvim
 # alias vim=nvim

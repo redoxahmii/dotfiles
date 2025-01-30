@@ -1,6 +1,5 @@
 return {
   {
-    -- TODO: format proper
     "snacks.nvim",
     opts = {
       indent = {
@@ -43,6 +42,15 @@ return {
         },
         sections = {
           { section = "header", padding = 1, align = "center" },
+          -- {
+          --   section = "terminal",
+          --   pane = 2,
+          --   cmd = "img2art /home/redox/Pictures/allama-iqbal.png --threshold 50 --scale .34 --quant 16 --with-color",
+          --   height = 27,
+          --   width = 40,
+          --   padding = -40,
+          --   indent = 15,
+          -- },
           { icon = " ", title = "Recent Files", section = "recent_files", limit = 4, padding = 1 },
           { section = "keys", gap = 1, padding = 1 },
           {
@@ -54,31 +62,19 @@ return {
               Snacks.gitbrowse()
             end,
           },
-          -- {
-          --   pane = 2,
-          --   icon = " ",
-          --   desc = "Browse Todos",
-          --   key = "d",
-          --   action = function()
-          --     vim.cmd("edit ~/Code/Obsidian/daily.md")
-          --   end,
-          -- },
           {
             pane = 2,
             icon = " ",
             desc = "Browse Todos",
             indent = 3,
             key = "d",
-            action = function()
-              vim.cmd("edit ~/Code/Obsidian/daily.md")
-            end,
+            action = "<leader>wt",
             section = "terminal",
-            -- cmd = "bat --theme 'Solarized (dark)' -p ~/Code/Obsidian/daily.md",
-            cmd = "task next",
-            ttl = 60,
-            height = 10,
+            cmd = "task list",
+            padding = 1,
+            ttl = 5 * 60,
+            height = 15,
           },
-
           function()
             local in_git = Snacks.git.get_root() ~= nil
             local cmds = {
@@ -88,7 +84,7 @@ return {
                 action = function()
                   vim.ui.open("https://github.com/notifications")
                 end,
-                -- key = "n",
+                key = "g",
                 icon = " ",
                 height = 8,
                 enabled = true,
@@ -116,7 +112,6 @@ return {
               {
                 icon = " ",
                 section = "terminal",
-                pane = 2,
                 title = "Git Status",
                 cmd = "git --no-pager diff --stat -B -M -C",
                 height = 8,

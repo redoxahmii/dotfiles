@@ -1,10 +1,10 @@
 return {
-  {
-    "saghen/blink.compat",
-    version = "*",
-    lazy = true,
-    opts = {},
-  },
+  -- {
+  --   "saghen/blink.compat",
+  --   version = "*",
+  --   lazy = true,
+  --   opts = {},
+  -- },
   {
     "saghen/blink.cmp",
     dependencies = {
@@ -12,9 +12,6 @@ return {
       --   "Kaiser-Yang/blink-cmp-dictionary",
       --   dependencies = { "nvim-lua/plenary.nvim" },
       -- },
-      {
-        "chrisgrieser/cmp_yanky",
-      },
     },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -30,15 +27,8 @@ return {
           "snippets",
           "buffer",
           -- "dictionary",
-          "cmp_yanky",
         },
         providers = {
-          cmp_yanky = {
-            module = "blink.compat.source",
-            name = "cmp_yanky",
-            score_offset = -2,
-            min_keyword_length = 3,
-          },
           -- dictionary = {
           --   module = "blink-cmp-dictionary",
           --   name = "Dict",
