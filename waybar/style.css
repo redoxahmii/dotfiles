@@ -1,9 +1,9 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Inter";
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 600;
   min-height: 0;
 }
 
@@ -47,12 +47,13 @@ window#waybar {
 }
 
 .modules-left {
+  background: #002b36;
   border-radius: 20px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
 }
 
 .modules-right {
-  /* background: #002b36; */
+  background: #002b36;
   border-radius: 20px;
   padding: 0 10px;
   margin: 0 5px;

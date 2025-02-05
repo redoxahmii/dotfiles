@@ -1,15 +1,24 @@
 #!/bin/bash
 
 POMODORO_SCRIPT="$HOME/.local/bin/waybar-module-pomodoro"
+LOCKFILE="/tmp/pomodoro.lock"
+
+# Ensure only one instance runs
+if [[ -f "$LOCKFILE" ]]; then
+  old_pid=$(cat "$LOCKFILE")
+  if ps -p "$old_pid" >/dev/null 2>&1; then
+    echo "Another instance is running (PID: $old_pid). Exiting..."
+    exit 1
+  fi
+fi
+echo $$ >"$LOCKFILE"
 
 CURRENT_STATE="work"
 
-$POMODORO_SCRIPT --no-icons -w 52 -s 17 -l 25 | while read -r line; do
-
+$POMODORO_SCRIPT --no-icons -w 40 -s 13 -l 25 | while read -r line; do
   text=$(echo "$line" | jq -r '.text')
 
   if [[ $text == *""* && $CURRENT_STATE == "work" ]]; then
-
     CURRENT_STATE="break"
 
     break_time=$(echo "$text" | grep -oP '\d+:\d+' | awk -F: '{print $1 * 60 + $2}')
@@ -32,7 +41,7 @@ $POMODORO_SCRIPT --no-icons -w 52 -s 17 -l 25 | while read -r line; do
       (
         for ((i = break_time; i >= 0; i--)); do
           percentage=$((100 - (i * 100 / break_time)))
-          echo "$percentage"
+          echo "$percentage" || break
           sleep 1
         done
         pkill -f "yad --progress"
@@ -70,5 +79,8 @@ $POMODORO_SCRIPT --no-icons -w 52 -s 17 -l 25 | while read -r line; do
     CURRENT_STATE="work"
   fi
 
-  echo "$line"
+  echo "$line" || break
 done
+
+# Cleanup on exit
+rm -f "$LOCKFILE"

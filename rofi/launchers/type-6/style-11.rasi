@@ -18,7 +18,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-   font:                      "JetBrainsMono Nerd Font 10";
+   font:                      "Inter 13";
     background: rgba(0,0,0,0.1);
     background-alt: #073642FF;
     foreground:     #EEE8D5FF;

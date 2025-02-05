@@ -89,6 +89,7 @@
     "on-click": "$HOME/.config/waybar/scripts/waybar-battery.sh"
   },
   "network": {
+    "max-length": 20,
     "format-wifi": "{essid} ",
     "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
     "tooltip-format-wifi": "{essid} ({bandwidthDownBytes}) ({signalStrength}%)",
