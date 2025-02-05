@@ -1,19 +1,19 @@
 return {
-  {
-    "kawre/leetcode.nvim",
-    lazy = true,
-    build = ":TSUpdate html",
-    dependencies = {
-      "ibhagwan/fzf-lua",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
-    opts = {
-      arg = "leetcode",
-      lang = "javascript",
-      image_support = true,
-    },
-  },
+  -- {
+  --   "kawre/leetcode.nvim",
+  --   lazy = true,
+  --   build = ":TSUpdate html",
+  --   dependencies = {
+  --     "ibhagwan/fzf-lua",
+  --     "nvim-lua/plenary.nvim",
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  --   opts = {
+  --     arg = "leetcode",
+  --     lang = "javascript",
+  --     image_support = true,
+  --   },
+  -- },
   {
     "duckdm/neowarrior.nvim",
     dev = true,

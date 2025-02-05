@@ -1,6 +1,6 @@
 ---@diagnostic disable: undefined-field
 local M = {}
----@class Tree
+
 M.set_shada = function()
   local project_dir = vim.fn.stdpath("data") .. "/myshada/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
   if vim.fn.isdirectory(project_dir) == 0 then
@@ -44,6 +44,15 @@ M.remove_comments = function()
   -- Format buf
   require("conform").format({ bufnr = bufnr })
 end
+-- What this should do is remove the surrounding tag only and leave whatever is inside of it.
+-- A good approach would to read whatever the tag is under cursor copy whatever in inside it and then remove the whole section and repaste the copied text inside.
+-- M.surrounding_tags = function()
+--   local ts_utils = require("nvim-treesitter.ts_utils")
+--   local bufnr = vim.api.nvim_get_current_buf()
+--   local language_tree = vim.treesitter.get_parser(bufnr)
+--   local node = ts_utils.get_node_at_cursor(bufnr)
+--   local tree = language_tree:parse()[1]
+-- end
 
 -- when i comment a <div> tag, it should also comment the corresponding </div> tag
 return M

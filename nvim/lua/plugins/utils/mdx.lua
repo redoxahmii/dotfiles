@@ -1,8 +1,8 @@
 return {
-  {
-    "davidmh/mdx.nvim",
-    event = "BufRead",
-    config = true,
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-  },
+  -- {
+  --   "davidmh/mdx.nvim",
+  --   ft = "markdown",
+  --   config = true,
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  -- },
 }

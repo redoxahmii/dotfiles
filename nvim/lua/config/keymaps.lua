@@ -2,6 +2,7 @@ local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
 map("n", "<leader>rr", require("redox.nice").remove_comments, { desc = "Remove comments" })
+-- map("n", "<leader>rw", require("redox.nice").surrounding_tags, { desc = "Remove surrounding tags" })
 
 map("n", "<leader>wt", "<cmd>NeoWarriorOpen<cr>", { desc = "Task list" })
 --INFO: set ft to bigfile so snacks.nvim disables all highlighting and treesitter

@@ -8,7 +8,7 @@ return {
     },
     keys = {
       {
-        "<leader>j",
+        "<leader>k",
         "<CMD>TSJToggle<CR>",
         desc = "Toggle Join/Split",
       },

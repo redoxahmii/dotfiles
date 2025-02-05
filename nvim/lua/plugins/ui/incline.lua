@@ -1,4 +1,3 @@
--- FIX: comeback to this
 return {
   "b0o/incline.nvim",
   event = "BufReadPre",
