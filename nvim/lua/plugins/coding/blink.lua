@@ -20,37 +20,42 @@ return {
         ["<C-u>"] = { "scroll_documentation_up", "fallback" },
         ["<C-d>"] = { "scroll_documentation_down", "fallback" },
       },
-      sources = {
-        default = {
-          "lsp",
-          "path",
-          "snippets",
-          "buffer",
-          -- "dictionary",
-        },
-        providers = {
-          -- dictionary = {
-          --   module = "blink-cmp-dictionary",
-          --   name = "Dict",
-          --   min_keyword_length = 3,
-          --   score_offset = 2,
-          --   opts = {
-          --     dictionary_directories = { vim.fn.expand("~/.config/nvim/lua/redox/dictionaries/") },
-          --     separate_output = function(output)
-          --       local items = {}
-          --       for line in output:gmatch("[^\r\n]+") do
-          --         table.insert(items, {
-          --           label = line,
-          --           insert_text = line,
-          --           documentation = nil,
-          --         })
-          --       end
-          --       return items
-          --     end,
-          --   },
-          -- },
-        },
-        cmdline = function()
+      -- This is having issue for some reason but don't really know and don't have time to be bothered
+      -- sources = {
+      --   default = {
+      --     "lsp",
+      --     "path",
+      --     "snippets",
+      --     "buffer",
+      --     -- "dictionary",
+      --   },
+      --   providers = {
+      --     -- dictionary = {
+      --     --   module = "blink-cmp-dictionary",
+      --     --   name = "Dict",
+      --     --   min_keyword_length = 3,
+      --     --   score_offset = 2,
+      --     --   opts = {
+      --     --     dictionary_directories = { vim.fn.expand("~/.config/nvim/lua/redox/dictionaries/") },
+      --     --     separate_output = function(output)
+      --     --       local items = {}
+      --     --       for line in output:gmatch("[^\r\n]+") do
+      --     --         table.insert(items, {
+      --     --           label = line,
+      --     --           insert_text = line,
+      --     --           documentation = nil,
+      --     --         })
+      --     --       end
+      --     --       return items
+      --     --     end,
+      --     --   },
+      --     -- },
+      --   },
+      -- },
+      cmdline = {
+        enabled = true,
+        -- sources = { "cmdline" },
+        sources = function()
           local type = vim.fn.getcmdtype()
           if type == "/" or type == "?" then
             return {}

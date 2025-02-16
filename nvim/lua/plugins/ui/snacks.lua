@@ -3,6 +3,25 @@ return {
   {
     "snacks.nvim",
     opts = {
+      styles = {
+        -- INFO: show top right of screen
+        snacks_image = {
+          relative = "editor",
+          fullscreen = true,
+          col = -1,
+        },
+      },
+      image = {
+        enabled = true,
+        wo = {
+          winhighlight = "FloatBorder:WhichKeyBorder",
+        },
+        doc = {
+          inline = false,
+          max_width = 50,
+          max_height = 30,
+        },
+      },
       indent = {
         scope = {
           treesitter = {
@@ -14,9 +33,22 @@ return {
         enabled = false,
       },
       picker = {
-        matcher = {
-          frecency = true,
-        },
+        --INFO: adds relativenumber to explorer
+        -- sources = {
+        --   explorer = {
+        --     win = {
+        --       list = {
+        --         wo = {
+        --           number = true,
+        --           relativenumber = true,
+        --         },
+        --       },
+        --     },
+        --   },
+        -- },
+        -- matcher = {
+        --   frecency = true,
+        -- },
         layouts = {
           sidebar = {
             layout = {

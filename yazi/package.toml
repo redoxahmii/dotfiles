@@ -1,5 +1,22 @@
-[plugin]
-deps = [{ use = "dedukun/bookmarks", rev = "600f87c" }, { use = "KKV9/compress", rev = "60b24af" }, { use = "yazi-rs/plugins:no-status", rev = "a53d544" }, { use = "yazi-rs/plugins:max-preview", rev = "a53d544" }]
+[[plugin.deps]]
+use = "dedukun/bookmarks"
+rev = "600f87c"
+hash = "2d286d11115903311b4a7d7ab11ae4dd"
+
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "60b24af"
+hash = "ee025be766240cc98e671754ac836da3"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:no-status"
+rev = "a53d544"
+hash = "f4d72c29cb0ddd9605e78f234216fd4e"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:max-preview"
+rev = "a53d544"
+hash = "2bcf0c353c61b92662b372a69ff97057"
 
 [flavor]
 deps = []

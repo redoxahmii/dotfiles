@@ -45,7 +45,7 @@ return {
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = true,
-    dev = true,
+    dev = false,
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require("solarized-osaka").setup({
@@ -55,9 +55,6 @@ return {
           sidebars = "transparent",
           floats = "transparent",
         },
-        -- on_colors = function(c)
-        --   c.bg = c.base2
-        -- end,
         on_highlights = function(hl, c)
           local util = require("solarized-osaka.util")
           local markdown_rainbow = { c.blue, c.yellow, c.green, c.red, c.magenta, c.cyan }

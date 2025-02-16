@@ -5,6 +5,23 @@ return {
     event = "LazyFile",
     opts = {
       inlay_hints = { enabled = false },
+      -- diagnostics = {
+      --   signs = {
+      --     text = {
+      --       [vim.diagnostic.severity.ERROR] = "",
+      --       [vim.diagnostic.severity.WARN] = "",
+      --       [vim.diagnostic.severity.HINT] = "",
+      --       [vim.diagnostic.severity.INFO] = "",
+      --     },
+      --     numhl = {
+      --       --TODO:  change highlight groups
+      --       [vim.diagnostic.severity.WARN] = "WarningMsg",
+      --       [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+      --       [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+      --       [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+      --     },
+      --   },
+      -- },
       servers = {
         lua_ls = {
           settings = {

@@ -1,12 +1,11 @@
 return {
   {
     "nvzone/showkeys",
-    dev = false,
     cmd = "ShowkeysToggle",
     opts = {
       timeout = 1,
       maxkeys = 8,
-      show_count = false,
+      show_count = true,
       winhl = "FloatBorder:WhichKeyBorder,Normalfloat:Normal",
       -- bottom-left, bottom-right, bottom-center, top-left, top-right, top-center
       position = "bottom-center",
@@ -20,8 +19,8 @@ return {
         col = 0,
       },
     },
-    keys = {
-      { "<leader>j", "<cmd>ShowkeysToggle<cr>", desc = "Show Keys" },
-    },
+    -- keys = {
+    --   { "<leader>j", "<cmd>ShowkeysToggle<cr>", desc = "Show Keys" },
+    -- },
   },
 }
