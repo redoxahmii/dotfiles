@@ -7,7 +7,6 @@ return {
         -- INFO: show top right of screen
         snacks_image = {
           relative = "editor",
-          fullscreen = true,
           col = -1,
         },
       },
@@ -18,8 +17,8 @@ return {
         },
         doc = {
           inline = false,
-          max_width = 50,
-          max_height = 30,
+          max_width = 45,
+          max_height = 20,
         },
       },
       indent = {
