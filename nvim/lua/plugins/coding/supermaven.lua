@@ -9,7 +9,7 @@ return {
         clear_suggestion = "<A-c>",
         accept_word = "<A-w>",
       },
-      ignore_filetypes = { "gitcommit", "gitrebase", "gitconfig", "markdown" },
+      ignore_filetypes = { "gitcommit", "gitrebase", "gitconfig" },
       log_level = "off",
     },
   },

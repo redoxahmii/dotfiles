@@ -4,6 +4,8 @@
 [global]
 # Display
 follow = mouse
+# icon_theme = Adwaita
+# enable_recursive_icon_lookup = true
 width = 350
 layer = top
 height = (0, 300)
@@ -41,6 +43,7 @@ min_icon_size = 54
 max_icon_size = 80
 # icon_path = /home/redox/.local/share/icons/Tela-circle-solarized/symbolic/apps/:/home/redox/.local/share/icons/Tela-circle-solarized/symbolic/status:/home/redox/.local/share/icons/Tela-circle-solarized/symbolic/places:/home/redox/.local/share/icons/Tela-circle-solarized/symbolic/actions/:/home/redox/.local/share/icons/Tela-circle-solarized/symbolic/mimetypes/
 icon_path = /home/redox/.local/share/icons/kora/actions/16/:/home/redox/.local/share/icons/kora/status/scalable/:/home/redox/.local/share/icons/kora/apps/symbolic/:/home/redox/.local/share/icons/kora/places/symbolic/
+# icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/legacy/
 
 icon_corner_radius = 4
 # Misc/Advanced

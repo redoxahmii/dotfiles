@@ -13,6 +13,7 @@ map("n", "<leader>uB", "<cmd>set ft=bigfile<CR>", { desc = "Big file" })
 map("n", "<leader>rh", function()
   require("redox.hsl").replaceHexWithHSL()
 end, { desc = "Replace Hex with HSL" })
+
 map("n", "<leader>rq", function()
   require("redox.hsl").replaceHSLtoHex()
 end, { desc = "Replace HSL with Hex" })

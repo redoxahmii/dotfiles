@@ -1,8 +1,8 @@
 {
-    "diagnostics.disable": [
-        "deprecated",
-        "doc-field-no-class",
-        "assign-type-mismatch",
-        "undefined-field"
-    ]
+  "diagnostics.disable": [
+    "doc-field-no-class",
+    "assign-type-mismatch",
+    "undefined-field"
+  ]
 }
+

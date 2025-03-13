@@ -14,6 +14,29 @@ return {
     },
   },
   -- {
+  --   "noice.nvim",
+  --   opts = {
+  --     cmdline = {
+  --       view = "cmdline",
+  --     },
+  --   },
+  -- },
+
+  -- {
+  --   "faker.nvim",
+  --   name = "faker.nvim",
+  --   dir = "~/Code/Neovim/faker.nvim",
+  --   opts = {},
+  -- },
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "neovim/nvim-lspconfig",
+  --   },
+  --   opts = {},
+  -- },
+  -- {
   --   "stevearc/conform.nvim",
   --   opts = {
   --     formatters = {

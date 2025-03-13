@@ -4,10 +4,9 @@ return {
     "folke/tokyonight.nvim",
     lazy = true,
     dev = false,
-    enabled = true,
     opts = {
       style = "night",
-      transparent = false,
+      transparent = true,
       styles = {
         sidebars = "transparent",
         floats = "transparent",
@@ -22,12 +21,6 @@ return {
     "catppuccin",
     enabled = false,
   },
-  -- {
-  --   "dgox16/oldworld.nvim",
-  --   opts = {
-  --     variant = "cooler",
-  --   },
-  -- },
   -- {
   --   "maxmx03/solarized.nvim",
   --   lazy = false,
@@ -45,7 +38,7 @@ return {
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = true,
-    dev = true,
+    dev = false,
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require("solarized-osaka").setup({

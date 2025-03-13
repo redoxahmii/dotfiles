@@ -5,7 +5,7 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "css-lsp",
-        "emmet-language-server",
+        -- "emmet-language-server",
       })
     end,
   },

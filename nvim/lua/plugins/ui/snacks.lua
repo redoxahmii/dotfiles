@@ -2,6 +2,7 @@ return {
   -- TODO: snacks.explorer configure shortcuts
   {
     "snacks.nvim",
+    ---@type snacks.Config
     opts = {
       styles = {
         -- INFO: show top right of screen

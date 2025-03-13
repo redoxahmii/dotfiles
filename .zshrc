@@ -48,11 +48,12 @@ zinit cdreplay -q
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Disable the terminal bell sound
+unsetopt BEEP
+
 # Keybindings
-bindkey -e
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
-bindkey '^[w' kill-region
+bindkey -v
+bindkey '^f' autosuggest-accept
 
 # History
 HISTSIZE=5000
@@ -70,11 +71,12 @@ setopt hist_find_no_dups
 setopt interactive_comments
 
 # Completion styling
- zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
- zstyle ':completion:*' menu no
- zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
- zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:*' switch-group '<' '>'
+
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --highlight-line \
   --info=inline-right \
@@ -97,9 +99,9 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --color=separator:#063540 \
   --color=spinner:#c94c16 \
 "
-# Aliases
 export NVM_DIR=~/.nvm
  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"

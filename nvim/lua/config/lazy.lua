@@ -19,7 +19,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
-    { import = "lazyvim.plugins.extras.vscode" },
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.editor.dial" },
@@ -64,7 +63,7 @@ require("lazy").setup({
   },
 })
 if vim.g.neovide then
-  vim.o.guifont = "JetBrainsMono Nerd Font"
-  vim.g.neovide_scale_factor = 1.0
+  vim.o.guifont = "JetBrainsMono Nerd Font Mono"
+  vim.g.neovide_scale_factor = 1.1
   vim.g.neovide_transparency = 0.6
 end

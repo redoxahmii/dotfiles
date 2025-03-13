@@ -27,6 +27,7 @@ alias tmxn="tmuxifier new-session"
 alias tmxl="tmuxifier load-session"
 alias tmxe="tmuxifier edit-session"
 alias tkss="tmux kill-session -t"
+alias t="tmux"
 alias please='sudo $(fc -ln -1)'
 alias r='$(fc -ln -1)'
 alias wscreenkey="GDK_BACKEND=x11 screenkey"

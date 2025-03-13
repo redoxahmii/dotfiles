@@ -1,3 +1,4 @@
+---@diagnostic disable: cast-local-type
 local M = {}
 
 function M.cowboy()

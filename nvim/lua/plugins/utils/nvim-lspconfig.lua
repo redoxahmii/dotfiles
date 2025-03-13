@@ -23,11 +23,73 @@ return {
       --   },
       -- },
       servers = {
+        -- harper_ls = {
+        --   settings = {
+        --     ["harper-ls"] = {
+        --       userDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
+        --       fileDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
+        --     },
+        --   },
+        -- },
+        tailwindcss = {
+          root_dir = function(fname)
+            local package_json_path = vim.fs.dirname(vim.fs.find("package.json", { path = fname, upward = true })[1])
+            if not package_json_path then
+              return nil
+            end
+
+            local file = io.open(package_json_path .. "/package.json", "r")
+            if not file then
+              return nil
+            end
+
+            local found = false
+            for line in file:lines() do
+              if line:match('"tailwindcss"%s*:') then
+                found = true
+                break
+              end
+            end
+
+            file:close()
+
+            if found then
+              return package_json_path
+            else
+              return nil
+            end
+          end,
+        },
+        emmet_language_server = {
+          -- TODO: find someway to detach in simple JS files.
+          filetypes = {
+            "css",
+            "eruby",
+            "html",
+            "htmldjango",
+            "javascriptreact",
+            "less",
+            "pug",
+            "sass",
+            "scss",
+            "javascript",
+            "typescript",
+            "typescriptreact",
+            "htmlangular",
+          },
+        },
         lua_ls = {
           settings = {
             Lua = {
               hint = { enable = true },
             },
+          },
+        },
+        eslint = {
+          flags = {
+            allow_incremental_sync = false,
+            debounce_text_changes = 1000,
+            exit_timeout = 1500,
           },
         },
         vtsls = {

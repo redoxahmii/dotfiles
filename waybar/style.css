@@ -11,6 +11,25 @@ window#waybar {
   background: transparent; /* Transparent background for Waybar */
   color: #eee8d5; /* Solarized base0 (light gray) */
 }
+/* #backlight-slider slider { */
+/*   min-height: 0px; */
+/*   min-width: 0px; */
+/*   opacity: 0; */
+/*   background-image: none; */
+/*   border: none; */
+/*   box-shadow: none; */
+/* } */
+/* #backlight-slider trough { */
+/*   min-height: 80px; */
+/*   min-width: 10px; */
+/*   border-radius: 5px; */
+/*   background-color: black; */
+/* } */
+/* #backlight-slider highlight { */
+/*   min-width: 10px; */
+/*   border-radius: 5px; */
+/*   background-color: red; */
+/* } */
 
 /* Left, Center, and Right pill sections */
 #workspaces,

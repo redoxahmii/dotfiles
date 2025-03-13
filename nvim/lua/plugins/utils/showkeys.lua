@@ -19,8 +19,8 @@ return {
         col = 0,
       },
     },
-    -- keys = {
-    --   { "<leader>j", "<cmd>ShowkeysToggle<cr>", desc = "Show Keys" },
-    -- },
+    keys = {
+      { "<leader>j", "<cmd>ShowkeysToggle<cr>", desc = "Show Keys" },
+    },
   },
 }

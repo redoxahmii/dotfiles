@@ -52,8 +52,10 @@ return {
       --     -- },
       --   },
       -- },
+
       cmdline = {
         enabled = true,
+        completion = { menu = { auto_show = true } },
         -- sources = { "cmdline" },
         sources = function()
           local type = vim.fn.getcmdtype()
@@ -69,21 +71,34 @@ return {
           return {}
         end,
       },
+      -- fuzzy = {
+      --   sorts = {
+      --     function(a, b)
+      --       if a.client_name == nil or b.client_name == nil then
+      --         return
+      --       end
+      --       return b.client_name == "emmet_ls"
+      --     end,
+      --     -- default sorts
+      --     "score",
+      --     "sort_text",
+      --   },
+      -- },
       completion = {
         menu = {
           scrollbar = false,
           auto_show = true,
-          winblend = vim.o.pumblend,
+          -- winblend = vim.o.pumblend,
           draw = {
             treesitter = {},
             columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
           },
         },
-        documentation = {
-          auto_show = true,
-          auto_show_delay_ms = 200,
-          update_delay_ms = 0,
-        },
+        -- documentation = {
+        --   auto_show = true,
+        --   auto_show_delay_ms = 200,
+        --   update_delay_ms = 0,
+        -- },
       },
       appearance = {
         use_nvim_cmp_as_default = false,
