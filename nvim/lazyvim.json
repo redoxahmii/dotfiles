@@ -2,9 +2,10 @@
   "extras": [
     "lazyvim.plugins.extras.ai.copilot-chat",
     "lazyvim.plugins.extras.coding.luasnip",
+    "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.markdown",
+    "lazyvim.plugins.extras.lang.svelte",
     "lazyvim.plugins.extras.lang.toml",
-    "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.util.rest"
   ],
   "install_version": 7,

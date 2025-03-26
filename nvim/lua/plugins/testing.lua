@@ -14,27 +14,20 @@ return {
     },
   },
   -- {
-  --   "noice.nvim",
-  --   opts = {
-  --     cmdline = {
-  --       view = "cmdline",
-  --     },
-  --   },
-  -- },
-
-  -- {
-  --   "faker.nvim",
-  --   name = "faker.nvim",
-  --   dir = "~/Code/Neovim/faker.nvim",
-  --   opts = {},
-  -- },
-  -- {
-  --   "pmizio/typescript-tools.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "neovim/nvim-lspconfig",
-  --   },
-  --   opts = {},
+  --   "Xuyuanp/scrollbar.nvim",
+  --   -- no setup required
+  --   init = function()
+  --     local group_id = vim.api.nvim_create_augroup("scrollbar_init", { clear = true })
+  --
+  --     vim.api.nvim_create_autocmd({ "BufEnter", "WinScrolled", "WinResized" }, {
+  --       group = group_id,
+  --       desc = "Show or refresh scrollbar",
+  --       pattern = { "*" },
+  --       callback = function()
+  --         require("scrollbar").show()
+  --       end,
+  --     })
+  --   end,
   -- },
   -- {
   --   "stevearc/conform.nvim",

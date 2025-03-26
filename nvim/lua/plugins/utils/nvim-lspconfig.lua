@@ -2,6 +2,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    -- version = "*",
     event = "LazyFile",
     opts = {
       inlay_hints = { enabled = false },
@@ -31,35 +32,35 @@ return {
         --     },
         --   },
         -- },
-        tailwindcss = {
-          root_dir = function(fname)
-            local package_json_path = vim.fs.dirname(vim.fs.find("package.json", { path = fname, upward = true })[1])
-            if not package_json_path then
-              return nil
-            end
-
-            local file = io.open(package_json_path .. "/package.json", "r")
-            if not file then
-              return nil
-            end
-
-            local found = false
-            for line in file:lines() do
-              if line:match('"tailwindcss"%s*:') then
-                found = true
-                break
-              end
-            end
-
-            file:close()
-
-            if found then
-              return package_json_path
-            else
-              return nil
-            end
-          end,
-        },
+        -- tailwindcss = {
+        --   root_dir = function(fname)
+        --     local package_json_path = vim.fs.dirname(vim.fs.find("package.json", { path = fname, upward = true })[1])
+        --     if not package_json_path then
+        --       return nil
+        --     end
+        --
+        --     local file = io.open(package_json_path .. "/package.json", "r")
+        --     if not file then
+        --       return nil
+        --     end
+        --
+        --     local found = false
+        --     for line in file:lines() do
+        --       if line:match('"tailwindcss"%s*:') then
+        --         found = true
+        --         break
+        --       end
+        --     end
+        --
+        --     file:close()
+        --
+        --     if found then
+        --       return package_json_path
+        --     else
+        --       return nil
+        --     end
+        --   end,
+        -- },
         emmet_language_server = {
           -- TODO: find someway to detach in simple JS files.
           filetypes = {
