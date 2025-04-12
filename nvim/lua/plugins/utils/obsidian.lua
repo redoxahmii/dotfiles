@@ -23,7 +23,7 @@ return {
       "nvim-lua/plenary.nvim",
       "hrsh7th/nvim-cmp",
       "nvim-treesitter/nvim-treesitter",
-      "3rd/image.nvim",
+      -- "3rd/image.nvim",
     },
     opts = {
       ui = {

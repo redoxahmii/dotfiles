@@ -4,7 +4,6 @@
     "lazyvim.plugins.extras.coding.luasnip",
     "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.markdown",
-    "lazyvim.plugins.extras.lang.svelte",
     "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.util.rest"
   ],

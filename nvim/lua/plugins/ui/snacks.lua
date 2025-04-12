@@ -34,18 +34,18 @@ return {
       },
       picker = {
         --INFO: adds relativenumber to explorer
-        -- sources = {
-        --   explorer = {
-        --     win = {
-        --       list = {
-        --         wo = {
-        --           number = true,
-        --           relativenumber = true,
-        --         },
-        --       },
-        --     },
-        --   },
-        -- },
+        sources = {
+          explorer = {
+            win = {
+              list = {
+                wo = {
+                  number = true,
+                  relativenumber = true,
+                },
+              },
+            },
+          },
+        },
         -- matcher = {
         --   frecency = true,
         -- },

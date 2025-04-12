@@ -66,8 +66,15 @@ return {
           hl.LineNrAbove = { fg = c.orange700 }
           hl.LineNrBelow = { fg = c.orange700 }
           hl.BlinkCmpMenu = { fg = c.base01, bg = c.none }
+
+          -- hl.DiagnosticVirtualTextError = { bg = c.none, fg = c.red }
+          -- hl.DiagnosticVirtualTextWarn = { bg = c.none, fg = c.yellow }
+          -- hl.DiagnosticVirtualTextInfo = { bg = c.none, fg = c.blue }
+          -- hl.DiagnosticVirtualTextHint = { bg = c.none, fg = c.cyan }
+          -- hl.DiagnosticVirtualTextWarn = { bg = c.none , fg = c.yellow }
           -- showmekeys
           hl.SkActive = { fg = c.cyan, bg = c.base03 }
+          hl.SnacksPickerFile = "NeotreeNormal"
           hl.SkInactive = { fg = c.magenta, bg = c.base03 }
         end,
       })
