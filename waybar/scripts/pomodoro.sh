@@ -2,19 +2,48 @@
 
 POMODORO_SCRIPT="$HOME/.local/bin/waybar-module-pomodoro"
 LOCKFILE="/tmp/pomodoro.lock"
+SCRIPT_NAME=$(basename "$0")
 
-# Ensure only one instance runs
+# Function to check if a process is our pomodoro process
+is_our_process() {
+  local pid=$1
+  # Check if the process exists and its command line matches our script or pomodoro binary
+  if ps -p "$pid" >/dev/null 2>&1; then
+    if grep -q -e "$POMODORO_SCRIPT" -e "$SCRIPT_NAME" /proc/"$pid"/cmdline 2>/dev/null; then
+      return 0
+    fi
+  fi
+  return 1
+}
+
+# Check for existing instances
 if [[ -f "$LOCKFILE" ]]; then
   old_pid=$(cat "$LOCKFILE")
-  if ps -p "$old_pid" >/dev/null 2>&1; then
-    echo "Another instance is running (PID: $old_pid). Exiting..."
+  if is_our_process "$old_pid"; then
+    echo "Another instance is already running (PID: $old_pid). Exiting..."
     exit 1
+  else
+    # Clean up stale lockfile
+    rm -f "$LOCKFILE"
   fi
 fi
+
+# Create new lockfile
 echo $$ >"$LOCKFILE"
+
+# Clean up function
+cleanup() {
+  # Kill the pomodoro process if it's still running
+  pkill -f "$POMODORO_SCRIPT --no-icons -w 40 -s 13 -l 25" || true
+  rm -f "$LOCKFILE"
+}
+
+# Set trap to clean up on exit
+trap cleanup EXIT
 
 CURRENT_STATE="work"
 
+# Start the pomodoro process
 $POMODORO_SCRIPT --no-icons -w 40 -s 13 -l 25 | while read -r line; do
   text=$(echo "$line" | jq -r '.text')
 
@@ -81,6 +110,3 @@ $POMODORO_SCRIPT --no-icons -w 40 -s 13 -l 25 | while read -r line; do
 
   echo "$line" || break
 done
-
-# Cleanup on exit
-rm -f "$LOCKFILE"

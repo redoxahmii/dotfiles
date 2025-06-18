@@ -38,7 +38,7 @@ return {
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = true,
-    dev = false,
+    dev = true,
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require("solarized-osaka").setup({
@@ -83,7 +83,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "solarized-osaka",
+      colorscheme = "tokyonight",
     },
   },
 }
