@@ -76,29 +76,51 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:*' switch-group '<' '>'
-
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --highlight-line \
   --info=inline-right \
   --ansi \
   --layout=reverse \
-  --border=none
-  --color=bg+:#002c38 \
-  --color=border:#063540 \
-  --color=fg:#9eabac \
-  --color=gutter:#001419 \
-  --color=header:#c94c16 \
-  --color=hl+:#c94c16 \
-  --color=hl:#c94c16 \
-  --color=info:#637981 \
-  --color=marker:#c94c16 \
-  --color=pointer:#c94c16 \
-  --color=prompt:#c94c16 \
-  --color=query:#9eabac:regular \
-  --color=scrollbar:#063540 \
-  --color=separator:#063540 \
-  --color=spinner:#c94c16 \
+  --border=none \
+  --color=bg+:#1a1b26 \
+  --color=border:#414868 \
+  --color=fg:#a9b1d6 \
+  --color=gutter:#16161e \
+  --color=header:#f7768e \
+  --color=hl+:#f7768e \
+  --color=hl:#f7768e \
+  --color=info:#565f89 \
+  --color=marker:#f7768e \
+  --color=pointer:#f7768e \
+  --color=prompt:#f7768e \
+  --color=query:#a9b1d6:regular \
+  --color=scrollbar:#414868 \
+  --color=separator:#414868 \
+  --color=spinner:#f7768e \
 "
+
+# export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+#   --highlight-line \
+#   --info=inline-right \
+#   --ansi \
+#   --layout=reverse \
+#   --border=none
+#   --color=bg+:#002c38 \
+#   --color=border:#063540 \
+#   --color=fg:#9eabac \
+#   --color=gutter:#001419 \
+#   --color=header:#c94c16 \
+#   --color=hl+:#c94c16 \
+#   --color=hl:#c94c16 \
+#   --color=info:#637981 \
+#   --color=marker:#c94c16 \
+#   --color=pointer:#c94c16 \
+#   --color=prompt:#c94c16 \
+#   --color=query:#9eabac:regular \
+#   --color=scrollbar:#063540 \
+#   --color=separator:#063540 \
+#   --color=spinner:#c94c16 \
+# "
 export NVM_DIR=~/.nvm
  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 

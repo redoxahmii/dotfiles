@@ -24,9 +24,9 @@ progress_bar_frame_width = 0
 progress_bar_corner_radius = 3
 
 # Colors
-foreground = "#7dcfff"  # Tokyo Night blue
-frame_color = "#1a1b26"  # Tokyo Night bg
-highlight = "#7aa2f7, #bb9af7"  # Tokyo Night blue and purple
+foreground = "#2aa198"
+frame_color = "#2d303c"
+highlight = "#2274d5, #82aad9"
 
 # Text
 font = Inter 11
@@ -41,7 +41,9 @@ hide_duplicate_count = false
 icon_position = left
 min_icon_size = 54
 max_icon_size = 80
+# icon_path = /home/redox/.local/share/icons/Tela-circle-solarized/symbolic/apps/:/home/redox/.local/share/icons/Tela-circle-solarized/symbolic/status:/home/redox/.local/share/icons/Tela-circle-solarized/symbolic/places:/home/redox/.local/share/icons/Tela-circle-solarized/symbolic/actions/:/home/redox/.local/share/icons/Tela-circle-solarized/symbolic/mimetypes/
 icon_path = /home/redox/.local/share/icons/kora/actions/16/:/home/redox/.local/share/icons/kora/status/scalable/:/home/redox/.local/share/icons/kora/apps/symbolic/:/home/redox/.local/share/icons/kora/places/symbolic/
+# icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/legacy/
 
 icon_corner_radius = 4
 # Misc/Advanced
@@ -54,22 +56,29 @@ mouse_middle_click = do_action, close_current
 mouse_right_click = close_all
 
 [urgency_low]
-frame_color = "#7aa2f7"  # Tokyo Night blue
-background = "#1a1b26"  # Tokyo Night bg
+frame_color = "#268bd2"
+background = "#002b36"
 timeout = 3
 
 [urgency_normal]
-frame_color = "#9ece6a"  # Tokyo Night green
-background = "#1a1b26"  # Tokyo Night bg
+frame_color = "#2aa198"
+background = "#002b36"
 timeout = 8
 
 [urgency_critical]
-frame_color = "#f7768e"  # Tokyo Night red
-foreground = "#f7768e"  # Tokyo Night red
-background = "#1a1b26"  # Tokyo Night bg
+frame_color = "#dc322f"
+foreground = "#dc322f"
+background = "#002b36"
 timeout = 0
 
+
 fullscreen = show
+# Rules
+# [fullscreen_delay_everything]
+# fullscreen = delay
+# [fullscreen_show_critical]
+# msg_urgency = critical
+# fullscreen = show
 
 [play_sound]
     summary = "Pomodoro"
