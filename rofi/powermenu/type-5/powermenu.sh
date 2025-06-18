@@ -10,8 +10,8 @@
 ## style-1   style-2   style-3   style-4   style-5
 
 # Current Theme
-dir="$HOME/.config/rofi/powermenu/type-5"
-theme='style-4'
+dir="$HOME/.config/rofi/powermenu/type-2"
+theme='style-7'
 
 # CMDs
 lastlogin="$(last $USER | head -n1 | tr -s ' ' | cut -d' ' -f5,6,7)"

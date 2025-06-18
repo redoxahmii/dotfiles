@@ -8,28 +8,10 @@
 }
 
 window#waybar {
-  background: transparent; /* Transparent background for Waybar */
-  color: #eee8d5; /* Solarized base0 (light gray) */
+  background: transparent;
+  color: #c0caf5;
+  /* Tokyo Night foreground */
 }
-/* #backlight-slider slider { */
-/*   min-height: 0px; */
-/*   min-width: 0px; */
-/*   opacity: 0; */
-/*   background-image: none; */
-/*   border: none; */
-/*   box-shadow: none; */
-/* } */
-/* #backlight-slider trough { */
-/*   min-height: 80px; */
-/*   min-width: 10px; */
-/*   border-radius: 5px; */
-/*   background-color: black; */
-/* } */
-/* #backlight-slider highlight { */
-/*   min-width: 10px; */
-/*   border-radius: 5px; */
-/*   background-color: red; */
-/* } */
 
 /* Left, Center, and Right pill sections */
 #workspaces,
@@ -44,8 +26,8 @@ window#waybar {
 #network,
 #pulseaudio,
 #custom-spotify {
-  border-radius: 20px; /* Pill shape */
-  padding: 0 8px; /* Consistent padding */
+  border-radius: 20px;
+  padding: 0 8px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -61,40 +43,45 @@ window#waybar {
 #custom-pomodoro:hover,
 #custom-power-toggle:hover,
 #custom-spotify:hover {
-  background: rgba(255, 255, 255, 0.1); /* Subtle highlight on hover */
-  color: #93a1a1; /* Solarized base1 (lighter gray) on hover */
+  background: rgba(202, 207, 245, 0.1);
+  /* Lightened Tokyo Night foreground */
+  color: #a9b1d6;
+  /* Tokyo Night color7 */
 }
 
 .modules-left {
-  background: #002b36;
+  background: #1a1b26;
+  /* Tokyo Night background */
   border-radius: 20px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .modules-right {
-  background: #002b36;
+  background: #1a1b26;
+  /* Tokyo Night background */
   border-radius: 20px;
   padding: 0 10px;
   margin: 0 5px;
-  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
 }
+
 /* Workspaces module */
 #workspaces button {
   background: transparent;
-  color: #268bd2; /* Solarized base0 */
+  color: #7aa2f7;
+  /* Tokyo Night color4 */
   padding: 0 10px;
-  border-radius: 20px; /* Pill shape */
-  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
 }
 
 #workspaces button.active {
-  color: #d33682; /* Solarized magenta for focused workspace */
+  color: #bb9af7;
+  /* Tokyo Night color13 (purple) for focused workspace */
 }
 
 /* Mode module */
 #submap {
-  background: #002b36;
-  color: #eee8d5;
+  background: #1a1b26;
+  color: #c0caf5;
   padding: 0 12px;
   font-weight: bold;
 }
@@ -102,79 +89,92 @@ window#waybar {
 /* Clock module */
 #clock {
   font-weight: bold;
-  color: #268bd2; /* Solarized blue for clock text */
+  color: #7aa2f7;
+  /* Tokyo Night blue */
 }
 
 /* Battery module */
 #battery {
-  color: #2aa198;
+  color: #9ece6a;
+  /* Tokyo Night green */
 }
 
 #battery.warning {
-  color: #dc322f;
+  color: #f7768e;
+  /* Tokyo Night red */
   animation: blink 0.5s linear infinite alternate;
 }
 
 #battery.charging {
-  color: #2dbaaf;
+  color: #7dcfff;
+  /* Tokyo Night cyan */
   animation: blink 0.5s linear infinite alternate;
 }
 
 @keyframes blink {
   to {
-    color: #93a1a1; /* Solarized base3 (brightest) */
+    color: #c0caf5;
+    /* Tokyo Night foreground */
   }
 }
 
 /* CPU and Memory modules */
 #cpu,
 #memory {
-  color: #859900; /* Solarized green */
+  color: #9ece6a;
+  /* Tokyo Night green */
 }
 
 /* Network module */
 #network {
-  color: #268bd2; /* Solarized blue */
+  color: #7aa2f7;
+  /* Tokyo Night blue */
 }
 
 #network.disconnected {
-  color: #dc322f; /* Red for disconnected state */
+  color: #f7768e;
+  /* Tokyo Night red */
 }
 
 /* Pulseaudio module */
 #pulseaudio {
-  color: #b58900; /* Solarized yellow */
+  color: #e0af68;
+  /* Tokyo Night yellow */
 }
 
 /* Custom Spotify module */
 #custom-spotify {
-  color: #2aa198; /* Solarized cyan */
+  color: #7dcfff;
+  /* Tokyo Night cyan */
 }
 
 /* Tray module */
 #tray {
-  color: #eee8d5; /* Solarized base0 */
+  color: #c0caf5;
 }
 
-/* ""          -   timer has not yet been started */
-/* "pause"     -   timer has been paused */
-/* "work"      -   timer is currently in a work cycle */
-/* "break"     -   timer is currently in a break cycle, either a short or long one */
-
+/* Pomodoro module */
 #custom-pomodoro.pause {
-  color: #dc322f; /* Solarized red */
+  color: #f7768e;
+  /* Tokyo Night red */
 }
+
 #custom-pomodoro {
-  color: #93a1a1; /* Solarized base3 (brightest) */
+  color: #a9b1d6;
+  /* Tokyo Night color7 */
 }
+
 #custom-pomodoro.work {
-  color: #859900; /* Solarized green */
+  color: #9ece6a;
+  /* Tokyo Night green */
 }
 
 #custom-power-toggle {
-  color: #d33682;
-  /* color: #6c71c4; */
+  color: #bb9af7;
+  /* Tokyo Night purple */
 }
+
 #custom-pomodoro.break {
-  color: #b58900; /* Solarized yellow */
+  color: #e0af68;
+  /* Tokyo Night yellow */
 }

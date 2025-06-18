@@ -1,0 +1,180 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "Inter";
+  font-size: 13px;
+  font-weight: 600;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent; /* Transparent background for Waybar */
+  color: #eee8d5; /* Solarized base0 (light gray) */
+}
+/* #backlight-slider slider { */
+/*   min-height: 0px; */
+/*   min-width: 0px; */
+/*   opacity: 0; */
+/*   background-image: none; */
+/*   border: none; */
+/*   box-shadow: none; */
+/* } */
+/* #backlight-slider trough { */
+/*   min-height: 80px; */
+/*   min-width: 10px; */
+/*   border-radius: 5px; */
+/*   background-color: black; */
+/* } */
+/* #backlight-slider highlight { */
+/*   min-width: 10px; */
+/*   border-radius: 5px; */
+/*   background-color: red; */
+/* } */
+
+/* Left, Center, and Right pill sections */
+#workspaces,
+#mode,
+#clock,
+#tray,
+#battery,
+#cpu,
+#memory,
+#custom-pomodoro,
+#custom-power-toggle,
+#network,
+#pulseaudio,
+#custom-spotify {
+  border-radius: 20px; /* Pill shape */
+  padding: 0 8px; /* Consistent padding */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Focused and hover effects */
+#workspaces button:hover,
+#mode:hover,
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-pomodoro:hover,
+#custom-power-toggle:hover,
+#custom-spotify:hover {
+  background: rgba(255, 255, 255, 0.1); /* Subtle highlight on hover */
+  color: #93a1a1; /* Solarized base1 (lighter gray) on hover */
+}
+
+.modules-left {
+  background: #002b36;
+  border-radius: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.modules-right {
+  background: #002b36;
+  border-radius: 20px;
+  padding: 0 10px;
+  margin: 0 5px;
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
+}
+/* Workspaces module */
+#workspaces button {
+  background: transparent;
+  color: #268bd2; /* Solarized base0 */
+  padding: 0 10px;
+  border-radius: 20px; /* Pill shape */
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+  color: #d33682; /* Solarized magenta for focused workspace */
+}
+
+/* Mode module */
+#submap {
+  background: #002b36;
+  color: #eee8d5;
+  padding: 0 12px;
+  font-weight: bold;
+}
+
+/* Clock module */
+#clock {
+  font-weight: bold;
+  color: #268bd2; /* Solarized blue for clock text */
+}
+
+/* Battery module */
+#battery {
+  color: #2aa198;
+}
+
+#battery.warning {
+  color: #dc322f;
+  animation: blink 0.5s linear infinite alternate;
+}
+
+#battery.charging {
+  color: #2dbaaf;
+  animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+  to {
+    color: #93a1a1; /* Solarized base3 (brightest) */
+  }
+}
+
+/* CPU and Memory modules */
+#cpu,
+#memory {
+  color: #859900; /* Solarized green */
+}
+
+/* Network module */
+#network {
+  color: #268bd2; /* Solarized blue */
+}
+
+#network.disconnected {
+  color: #dc322f; /* Red for disconnected state */
+}
+
+/* Pulseaudio module */
+#pulseaudio {
+  color: #b58900; /* Solarized yellow */
+}
+
+/* Custom Spotify module */
+#custom-spotify {
+  color: #2aa198; /* Solarized cyan */
+}
+
+/* Tray module */
+#tray {
+  color: #eee8d5; /* Solarized base0 */
+}
+
+/* ""          -   timer has not yet been started */
+/* "pause"     -   timer has been paused */
+/* "work"      -   timer is currently in a work cycle */
+/* "break"     -   timer is currently in a break cycle, either a short or long one */
+
+#custom-pomodoro.pause {
+  color: #dc322f; /* Solarized red */
+}
+#custom-pomodoro {
+  color: #93a1a1; /* Solarized base3 (brightest) */
+}
+#custom-pomodoro.work {
+  color: #859900; /* Solarized green */
+}
+
+#custom-power-toggle {
+  color: #d33682;
+  /* color: #6c71c4; */
+}
+#custom-pomodoro.break {
+  color: #b58900; /* Solarized yellow */
+}

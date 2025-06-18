@@ -20,6 +20,10 @@ configuration {
 @import                          "shared/fonts.rasi"
 
 /*****----- Main Window -----*****/
+
+* {
+   font:                      "Inter 13";
+   }
 window {
     transparency:                "real";
     location:                    west;

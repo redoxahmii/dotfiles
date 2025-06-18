@@ -24,6 +24,7 @@ configuration {
 @import                          "shared/fonts.rasi"
 
 * {
+   font:                      "Inter 13";
     border-colour:               var(selected);
     handle-colour:               var(selected);
     background-colour:           var(background);
