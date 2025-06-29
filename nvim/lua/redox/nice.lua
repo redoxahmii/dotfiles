@@ -10,29 +10,51 @@ M.set_shada = function()
   vim.opt.shadafile = shadafile
 end
 
--- Only run jsx part if in jsx or tsx ifl
 M.remove_comments = function()
   local bufnr = vim.api.nvim_get_current_buf()
-  local language_tree = vim.treesitter.get_parser(bufnr)
-  local syntax_tree = language_tree:parse()[1]
-  local query = vim.treesitter.query.parse(
-    language_tree._lang,
-    [[
-    (comment) @comment
-    (jsx_expression
-      (comment) @jsx_comment)
-    ]]
-  )
+  local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
+  local is_js_like = filetype == "javascript"
+    or filetype == "typescript"
+    or filetype == "javascriptreact"
+    or filetype == "typescriptreact"
+  local is_lua = filetype == "lua"
 
-  -- Collect all text changes first
+  local language_tree = vim.treesitter.get_parser(bufnr)
+  if not language_tree then
+    return
+  end
+  local syntax_tree = language_tree:parse()[1]
+
+  local query_pattern = "(comment) @comment"
+
+  if filetype == "javascriptreact" or filetype == "typescriptreact" then
+    query_pattern = query_pattern .. "\n(jsx_expression (comment) @jsx_comment)"
+  end
+
+  local query = vim.treesitter.query.parse(language_tree._lang, query_pattern)
+
   local changes = {}
   for id, node in query:iter_captures(syntax_tree:root(), bufnr) do
     local name = query.captures[id]
     if name == "comment" or name == "jsx_comment" then
+      if is_lua then
+        local text = vim.treesitter.get_node_text(node, bufnr)
+        if text and text:match("^%-%-%-@") then
+          goto continue
+        end
+      end
+
+      if is_js_like then
+        local text = vim.treesitter.get_node_text(node, bufnr)
+
+        if text and (text:match("^/%*%*") or text:match("^%s*/%*%*")) then
+          goto continue
+        end
+      end
+
       local target_node = name == "jsx_comment" and node:parent() or node
       local start_row, start_col, end_row, end_col = target_node:range()
 
-      -- Validate ranges
       local line = vim.api.nvim_buf_get_lines(bufnr, start_row, start_row + 1, true)[1] or ""
       start_col = math.max(0, math.min(start_col, #line))
       end_col = math.max(0, math.min(end_col, #line))
@@ -46,9 +68,9 @@ M.remove_comments = function()
         })
       end
     end
+    ::continue::
   end
 
-  -- Apply changes in reverse order
   for i = #changes, 1, -1 do
     local change = changes[i]
     pcall(vim.api.nvim_buf_set_text, bufnr, change.start_row, change.start_col, change.end_row, change.end_col, { "" })
@@ -56,4 +78,5 @@ M.remove_comments = function()
 
   require("conform").format({ bufnr = bufnr })
 end
+
 return M

@@ -1,12 +1,13 @@
 return {
-  {
-    "Davidyz/VectorCode",
-    version = "0.6.11", -- optional, depending on whether you're on nightly or release
-    dependencies = { "nvim-lua/plenary.nvim" },
-    cmd = "VectorCode", -- if you're lazy-loading VectorCode
-  },
+  -- {
+  --   "Davidyz/VectorCode",
+  --   version = "0.6.11", -- optional, depending on whether you're on nightly or release
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   cmd = "VectorCode", -- if you're lazy-loading VectorCode
+  -- },
   {
     "echasnovski/mini.diff",
+    lazy = true,
     config = function()
       local diff = require("mini.diff")
       diff.setup({
@@ -15,27 +16,27 @@ return {
       })
     end,
   },
-  {
-    "ravitemer/mcphub.nvim",
-    lazy = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
-    keys = {
-      { "<leader>am", "<cmd>MCPHub<cr>", desc = "McpHub" },
-    },
-    config = function()
-      require("mcphub").setup({
-        shutdown_delay = 300000,
-        ui = {
-          wo = {
-            winhl = "Border:MCPHubNormal,FloatBorder:SnacksPickerBorder",
-          },
-        },
-      })
-    end,
-  },
+  -- {
+  --   "ravitemer/mcphub.nvim",
+  --   lazy = false,
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  --   build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
+  --   keys = {
+  --     { "<leader>am", "<cmd>MCPHub<cr>", desc = "McpHub" },
+  --   },
+  --   config = function()
+  --     require("mcphub").setup({
+  --       shutdown_delay = 300000,
+  --       ui = {
+  --         wo = {
+  --           winhl = "Border:MCPHubNormal,FloatBorder:SnacksPickerBorder",
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
   {
     "olimorris/codecompanion.nvim",
     lazy = true,
@@ -83,19 +84,19 @@ return {
             enable_logging = false,
           },
         },
-        vectorcode = {
-          opts = {
-            add_tool = true,
-          },
-        },
-        mcphub = {
-          callback = "mcphub.extensions.codecompanion",
-          opts = {
-            show_result_in_chat = true, -- Show mcp tool results in chat
-            make_vars = true, -- Convert resources to #variables
-            make_slash_commands = true, -- Add prompts as /slash commands
-          },
-        },
+        -- vectorcode = {
+        --   opts = {
+        --     add_tool = true,
+        --   },
+        -- },
+        -- mcphub = {
+        --   callback = "mcphub.extensions.codecompanion",
+        --   opts = {
+        --     show_result_in_chat = true, -- Show mcp tool results in chat
+        --     make_vars = true, -- Convert resources to #variables
+        --     make_slash_commands = true, -- Add prompts as /slash commands
+        --   },
+        -- },
       },
     },
     keys = {
