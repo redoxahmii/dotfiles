@@ -13,14 +13,4 @@ return {
       log_level = "off",
     },
   },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    opts = {
-      mappings = {
-        complete = {
-          insert = "",
-        },
-      },
-    },
-  },
 }
