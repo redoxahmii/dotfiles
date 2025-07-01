@@ -1,7 +1,7 @@
 --- [INFO: Obsidian Notes]
 return {
   {
-    "epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
     -- version = "*",
     lazy = true,
     dev = false,
@@ -19,11 +19,8 @@ return {
     --   "BufNewFile path/to/my-vault/**.md",
     -- },
     dependencies = {
-      -- Required.
       "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
       "nvim-treesitter/nvim-treesitter",
-      -- "3rd/image.nvim",
     },
     opts = {
       ui = {
@@ -49,7 +46,7 @@ return {
         img_folder = "Images",
       },
       follow_url_func = function(url)
-        print("Opening URL: " .. url)
+        vim.notify("Opening URL: " .. url, vim.log.levels.INFO)
         vim.fn.jobstart({ "xdg-open", url }) -- linux
       end,
       workspaces = {
