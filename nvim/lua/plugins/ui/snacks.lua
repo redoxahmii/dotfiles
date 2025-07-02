@@ -21,6 +21,7 @@ return {
           max_width = 45,
           max_height = 20,
         },
+        img_dirs = { "Images" },
       },
       indent = {
         scope = {

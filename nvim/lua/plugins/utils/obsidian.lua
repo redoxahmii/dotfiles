@@ -9,6 +9,7 @@ return {
     ft = "markdown",
     keys = {
       { "<leader>wW", mode = "n", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian Notes" },
+      { "<leader>ci", mode = "n", "<cmd>ObsidianPasteImg<cr>", desc = "Paste Image" },
     },
 
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
