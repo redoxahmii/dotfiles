@@ -1,12 +1,11 @@
 return {
   {
     "eero-lehtinen/oklch-color-picker.nvim",
-    event = "VeryLazy",
+    event = "BufRead",
     version = "*",
     ---@type oklch.Opts
     opts = {},
   },
-  -- {
   --   "stevearc/conform.nvim",
   --   opts = {
   --     formatters = {
