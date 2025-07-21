@@ -2,6 +2,9 @@ local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
 map("n", "<leader>rr", require("redox.nice").remove_comments, { desc = "Remove comments" })
+map("n", "<leader>t", '<cmd>:lua Snacks.terminal({"trans"})<cr>', { desc = "Launch Translator" })
+-- vim.keymap.del("n", "<C-/>", opts)
+
 -- map("n", "<leader>rw", require("redox.nice").surrounding_tags, { desc = "Remove surrounding tags" })
 
 map("n", "<leader>wt", "<cmd>NeoWarriorOpen<cr>", { desc = "Task list" })

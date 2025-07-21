@@ -42,6 +42,10 @@ return {
                 wo = {
                   number = true,
                   relativenumber = true,
+                  numberwidth = 3,
+                },
+                keys = {
+                  ["e"] = "toggle_maximize",
                 },
               },
             },
@@ -192,6 +196,9 @@ return {
           { section = "startup" },
         },
       },
+    },
+    keys = {
+      { "<C-/>", false },
     },
   },
 }
