@@ -1,13 +1,18 @@
 return {
+  -- {
+  --   "eero-lehtinen/oklch-color-picker.nvim",
+  --   event = "BufRead",
+  --   version = "*",
+  --   opts = {},
+  -- },
   {
-    "eero-lehtinen/oklch-color-picker.nvim",
+    "brenoprata10/nvim-highlight-colors",
     event = "BufRead",
-    version = "*",
     opts = {},
   },
   {
     "S1M0N38/love2d.nvim",
-    event = "VeryLazy",
+    ft = "lua",
     opts = {},
     keys = {
       { "<leader>v", ft = "lua", desc = "LÖVE" },

@@ -1,4 +1,10 @@
 return {
+  -- {
+  --   "Davidyz/VectorCode",
+  --   version = "0.6.11", -- optional, depending on whether you're on nightly or release
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   cmd = "VectorCode", -- if you're lazy-loading VectorCode
+  -- },
   {
     "echasnovski/mini.diff",
     lazy = true,
@@ -42,7 +48,7 @@ return {
       },
       strategies = {
         chat = {
-          adapter = "githubmodels",
+          -- adapter = "githubmodels",
           variables = {
             ["buffer"] = {
               opts = {

@@ -36,6 +36,9 @@ return {
       picker = {
         --INFO: adds relativenumber to explorer
         sources = {
+          files = {
+            hidden = true,
+          },
           explorer = {
             win = {
               list = {

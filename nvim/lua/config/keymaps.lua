@@ -4,6 +4,10 @@ local map = vim.keymap.set
 map("n", "<leader>rr", require("redox.nice").remove_comments, { desc = "Remove comments" })
 map("n", "<leader>t", '<cmd>:lua Snacks.terminal({"trans"})<cr>', { desc = "Launch Translator" })
 -- vim.keymap.del("n", "<C-/>", opts)
+vim.keymap.del({ "n", "t" }, "<c-/>")
+vim.keymap.del({ "n", "t" }, "<c-_>")
+map({ "n", "t" }, "<c-/>", '<cmd>:lua Snacks.terminal({"trans"})<cr>', { desc = "Launch Translator" })
+map({ "n", "t" }, "<c-_>", '<cmd>:lua Snacks.terminal({"trans"})<cr>', { desc = "Launch Translator" })
 
 -- map("n", "<leader>rw", require("redox.nice").surrounding_tags, { desc = "Remove surrounding tags" })
 
