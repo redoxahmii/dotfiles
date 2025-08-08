@@ -48,7 +48,7 @@ return {
       },
       strategies = {
         chat = {
-          adapter = "githubmodels",
+          -- adapter = "githubmodels",
           variables = {
             ["buffer"] = {
               opts = {

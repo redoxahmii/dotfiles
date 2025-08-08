@@ -1,7 +1,7 @@
 return {
   {
     "duckdm/neowarrior.nvim",
-    dev = true,
+    branch = "develop",
     cmd = "NeoWarriorOpen",
     opts = {
       colors = {

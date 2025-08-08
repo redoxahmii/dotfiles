@@ -3,12 +3,19 @@
   "ipc": true,
   "position": "top",
   "height": 30,
+  "reload_style_on_change": true,
   "layer-shell": {
     "exclusive-zone": true,
     "visibility": "toggleable"
   },
-  "modules-left": ["hyprland/workspaces", "hyprland/submap", "custom/spotify"],
-  "modules-center": ["hyprland/window"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/submap",
+    "custom/spotify"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
   "modules-right": [
     "custom/pomodoro",
     "custom/power-toggle",
@@ -87,7 +94,13 @@
     },
     "format": "{capacity}%  {icon}",
     "format-charging": " {capacity}%  <span></span>",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
     "interval": 15,
     "on-click": "$HOME/.config/waybar/scripts/waybar-battery.sh"
   },
@@ -112,7 +125,10 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", ""]
+      "default": [
+        "",
+        ""
+      ]
     },
     "on-click": "pavucontrol"
   },
