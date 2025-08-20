@@ -38,7 +38,7 @@ return {
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = true,
-    dev = true,
+    dev = false,
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require("solarized-osaka").setup({

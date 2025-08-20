@@ -36,8 +36,7 @@ return {
       end,
 
       templates = {
-        debug = true,
-        folder = "~/Code/Obsidian/Templates",
+        folder = "Templates",
       },
       daily_notes = {
         folder = "Daily",
