@@ -24,14 +24,29 @@ return {
       --   },
       -- },
       servers = {
-        -- harper_ls = {
-        --   settings = {
-        --     ["harper-ls"] = {
-        --       userDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
-        --       fileDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
-        --     },
-        --   },
-        -- },
+        marksman = {
+          enabled = false,
+        },
+        harper_ls = {
+          -- filetypes = {
+          --   "markdown",
+          --   "markdown.mdx",
+          --   "typst",
+          -- },
+          settings = {
+            ["harper-ls"] = {
+              linters = {
+                SentenceCapitalization = false,
+                SpellCheck = false,
+              },
+              markdown = {
+                IgnoreLinkTitle = true,
+              },
+              userDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
+              fileDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
+            },
+          },
+        },
         -- tailwindcss = {
         --   root_dir = function(fname)
         --     local package_json_path = vim.fs.dirname(vim.fs.find("package.json", { path = fname, upward = true })[1])

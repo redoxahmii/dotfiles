@@ -1,15 +1,22 @@
 return {
-  -- {
-  --   "eero-lehtinen/oklch-color-picker.nvim",
-  --   event = "BufRead",
-  --   version = "*",
-  --   opts = {},
-  -- },
   {
-    "brenoprata10/nvim-highlight-colors",
+    "eero-lehtinen/oklch-color-picker.nvim",
     event = "BufRead",
+    version = "*",
     opts = {},
   },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      current_line_blame = true,
+    },
+  },
+
+  -- {
+  --   "brenoprata10/nvim-highlight-colors",
+  --   event = "BufRead",
+  --   opts = {},
+  -- },
   {
     "S1M0N38/love2d.nvim",
     ft = "lua",
