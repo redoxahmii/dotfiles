@@ -6,7 +6,7 @@ return {
   --   cmd = "VectorCode", -- if you're lazy-loading VectorCode
   -- },
   {
-    "echasnovski/mini.diff",
+    "nvim-mini/mini.diff",
     lazy = true,
     config = function()
       local diff = require("mini.diff")
@@ -40,6 +40,18 @@ return {
     "olimorris/codecompanion.nvim",
     lazy = true,
     opts = {
+      adapters = {
+        acp = {
+          gemini_cli = function()
+            return require("codecompanion.adapters").extend("gemini_cli", {
+              defaults = {
+                timeout = 50000,
+              },
+            })
+          end,
+        },
+      },
+      log_level = "DEBUG",
       adapter = {
         opts = {
           show_model_choices = true,
@@ -47,7 +59,7 @@ return {
       },
       strategies = {
         chat = {
-          -- adapter = "githubmodels",
+          adapter = "gemini_cli",
           variables = {
             ["buffer"] = {
               opts = {

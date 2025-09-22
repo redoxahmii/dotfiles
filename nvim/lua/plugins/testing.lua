@@ -5,37 +5,40 @@ return {
     version = "*",
     opts = {},
   },
+  -- {
+  --   "amitds1997/remote-nvim.nvim",
+  --   version = "*", -- Pin to GitHub releases
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim", -- For standard functions
+  --     "MunifTanjim/nui.nvim", -- To build the plugin UI
+  --   },
+  --   config = true,
+  -- },
   {
-    "lewis6991/gitsigns.nvim",
+    "napmn/react-extract.nvim",
+    dev = true,
+    event = "BufRead",
+    opts = {},
+  },
+  {
+    "zerochae/endpoint.nvim",
+    dev = true,
+    dependencies = {
+      "folke/snacks.nvim",
+    },
+    cmd = { "Endpoint" },
     opts = {
-      current_line_blame = true,
+      picker = {
+        type = "snacks",
+      },
+    },
+    keys = {
+      { "<leader>ce", "<cmd>Endpoint<cr>", desc = "Show Endpoints in a Project" },
     },
   },
-
   -- {
   --   "brenoprata10/nvim-highlight-colors",
   --   event = "BufRead",
-  --   opts = {},
-  -- },
-  {
-    "S1M0N38/love2d.nvim",
-    ft = "lua",
-    opts = {},
-    keys = {
-      { "<leader>v", ft = "lua", desc = "LÖVE" },
-      { "<leader>vv", "<cmd>LoveRun<cr>", ft = "lua", desc = "Run LÖVE" },
-      { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua", desc = "Stop LÖVE" },
-    },
-  },
-  -- {
-  --   "luckasRanarison/tailwind-tools.nvim",
-  --   cmd = "TailwindSort",
-  --   name = "tailwind-tools",
-  --   build = ":UpdateRemotePlugins",
-  --   dependencies = {
-  --     "nvim-treesitter/nvim-treesitter",
-  --     "neovim/nvim-lspconfig",
-  --   },
   --   opts = {},
   -- },
 }
