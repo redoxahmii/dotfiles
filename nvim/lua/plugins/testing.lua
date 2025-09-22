@@ -1,10 +1,4 @@
 return {
-  -- {
-  --   "eero-lehtinen/oklch-color-picker.nvim",
-  --   event = "BufRead",
-  --   version = "*",
-  --   opts = {},
-  -- },
   {
     "eero-lehtinen/oklch-color-picker.nvim",
     event = "BufRead",
@@ -19,29 +13,39 @@ return {
   },
 
   -- {
-  --   "brenoprata10/nvim-highlight-colors",
-  --   event = "BufRead",
-  --   opts = {},
+  --   "amitds1997/remote-nvim.nvim",
+  --   version = "*", -- Pin to GitHub releases
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim", -- For standard functions
+  --     "MunifTanjim/nui.nvim", -- To build the plugin UI
+  --   },
+  --   config = true,
   -- },
   {
-    "S1M0N38/love2d.nvim",
-    ft = "lua",
+    "napmn/react-extract.nvim",
+    dev = true,
+    event = "BufRead",
     opts = {},
+  },
+  {
+    "zerochae/endpoint.nvim",
+    dev = true,
+    dependencies = {
+      "folke/snacks.nvim",
+    },
+    cmd = { "Endpoint" },
+    opts = {
+      picker = {
+        type = "snacks",
+      },
+    },
     keys = {
-      { "<leader>v", ft = "lua", desc = "LÖVE" },
-      { "<leader>vv", "<cmd>LoveRun<cr>", ft = "lua", desc = "Run LÖVE" },
-      { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua", desc = "Stop LÖVE" },
+      { "<leader>ce", "<cmd>Endpoint<cr>", desc = "Show Endpoints in a Project" },
     },
   },
   -- {
-  --   "luckasRanarison/tailwind-tools.nvim",
-  --   cmd = "TailwindSort",
-  --   name = "tailwind-tools",
-  --   build = ":UpdateRemotePlugins",
-  --   dependencies = {
-  --     "nvim-treesitter/nvim-treesitter",
-  --     "neovim/nvim-lspconfig",
-  --   },
+  --   "brenoprata10/nvim-highlight-colors",
+  --   event = "BufRead",
   --   opts = {},
   -- },
 }
