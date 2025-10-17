@@ -14,15 +14,40 @@ return {
   --   },
   --   config = true,
   -- },
+  -- {
+  --   "napmn/react-extract.nvim",
+  --   dev = true,
+  --   event = "BufRead",
+  --   opts = {},
+  -- },
   {
-    "napmn/react-extract.nvim",
-    dev = true,
-    event = "BufRead",
-    opts = {},
+    "folke/todo-comments.nvim",
+    dev = false,
+    -- opts = {
+    --   uda = {
+    --     tags = {
+    --       sherpa = 20,
+    --     },
+    --   },
+    -- },
+  },
+  {
+    "folke/sidekick.nvim",
+    opts = {
+      nes = {
+        enabled = false,
+      },
+      cli = {
+        mux = {
+          backend = "tmux",
+          enabled = true,
+        },
+      },
+    },
   },
   {
     "zerochae/endpoint.nvim",
-    dev = true,
+    dev = false,
     dependencies = {
       "folke/snacks.nvim",
     },
@@ -35,6 +60,10 @@ return {
     keys = {
       { "<leader>ce", "<cmd>Endpoint<cr>", desc = "Show Endpoints in a Project" },
     },
+  },
+  {
+    "LazyVim/LazyVim",
+    version = false,
   },
   -- {
   --   "brenoprata10/nvim-highlight-colors",

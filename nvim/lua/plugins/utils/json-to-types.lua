@@ -15,28 +15,28 @@ return {
         "<CMD>ConvertJSONtoLangBuffer typescript<CR>",
         desc = "Convert JSON to TS Buffer",
       },
-      {
-        "<leader>Rw",
-        function()
-          require("kulala.api").on("after_next_request", function(data)
-            local filename = "kulala.json"
-            local file = io.open(filename, "w")
-            if not file then
-              print("Error: Failed to open file for writing")
-              return
-            end
-            file:write(data.body)
-            file:close()
-            vim.cmd("edit " .. filename)
-            local buf = vim.api.nvim_get_current_buf()
-            vim.cmd("ConvertJSONtoLang typescript")
-            vim.api.nvim_buf_delete(buf, { force = true })
-            os.remove(filename)
-          end)
-          require("kulala").run()
-        end,
-        desc = "Toggle API Callback for JSON to TS Buffer",
-      },
+      -- {
+      --   "<leader>Rw",
+      --   function()
+      --     require("kulala.api").on("after_next_request", function(data)
+      --       local filename = "kulala.json"
+      --       local file = io.open(filename, "w")
+      --       if not file then
+      --         print("Error: Failed to open file for writing")
+      --         return
+      --       end
+      --       file:write(data.body)
+      --       file:close()
+      --       vim.cmd("edit " .. filename)
+      --       local buf = vim.api.nvim_get_current_buf()
+      --       vim.cmd("ConvertJSONtoLang typescript")
+      --       vim.api.nvim_buf_delete(buf, { force = true })
+      --       os.remove(filename)
+      --     end)
+      --     require("kulala").run()
+      --   end,
+      --   desc = "Toggle API Callback for JSON to TS Buffer",
+      -- },
 
       -- {
       --   "<leader>Rw",

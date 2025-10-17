@@ -29,11 +29,11 @@ git:
   merging:
   autoForwardBranches: none
   paging:
-    colorArg: always
-    useConfig: true
+    colorArg: always 
+    pager: delta --dark --tabs=4 --paging=never --syntax-theme="Solarized (dark)"
 customCommands:
   - key: "C"
-    command: "git cz"
+    command: "cz"
     description: "commit with commitizen"
     context: "files"
     loadingText: "opening commitizen commit tool"

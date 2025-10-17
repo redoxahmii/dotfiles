@@ -5,16 +5,45 @@ return {
   --   dependencies = { "nvim-lua/plenary.nvim" },
   --   cmd = "VectorCode", -- if you're lazy-loading VectorCode
   -- },
-  {
-    "nvim-mini/mini.diff",
-    lazy = true,
-    config = function()
-      local diff = require("mini.diff")
-      diff.setup({
-        source = diff.gen_source.none(),
-      })
-    end,
-  },
+  -- {
+  --   "nvim-mini/mini.diff",
+  --   lazy = true,
+  --   config = function()
+  --     local diff = require("mini.diff")
+  --     diff.setup({
+  --       source = diff.gen_source.none(),
+  --     })
+  --   end,
+  -- },
+  -- {
+  --   "gutsavgupta/nvim-gemini-companion",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  --   event = "VeryLazy",
+  --   config = function()
+  --     -- You can configure the plugin by passing a table to the setup function
+  --     -- Example:
+  --     require("gemini").setup({
+  --       cmds = { "qwen" },
+  --       -- win = {
+  --       --   preset = "floating",
+  --       --   width = 0.8,
+  --       --   height = 0.8,
+  --       -- },
+  --     })
+  --     require("gemini").setup()
+  --   end,
+  --   keys = {
+  --     { "<leader>gG", "<cmd>GeminiToggle<cr>", desc = "Toggle Gemini CLI" },
+  --     { "<leader>gc", "<cmd>GeminiClose<cr>", desc = "Close Gemini CLI process" },
+  --     { "<leader>ga", "<cmd>GeminiAccept<cr>", desc = "Accept Gemini suggested changes" },
+  --     { "<leader>gr", "<cmd>GeminiReject<cr>", desc = "Reject Gemini suggested changes" },
+  --     { "<leader>gD", "<cmd>GeminiSendFileDiagnostic<cr>", desc = "Send File Diagnostics" },
+  --     { "<leader>gd", "<cmd>GeminiSendLineDiagnostic<cr>", desc = "Send Line Diagnostics" },
+  --     { "<leader>gs", "<cmd>GeminiSwitchSidebarStyle<cr>", desc = "Switch Sidebar Style" },
+  --   },
+  -- },
   -- {
   --   "ravitemer/mcphub.nvim",
   --   lazy = false,
@@ -36,94 +65,94 @@ return {
   --     })
   --   end,
   -- },
-  {
-    "olimorris/codecompanion.nvim",
-    lazy = true,
-    opts = {
-      adapters = {
-        acp = {
-          gemini_cli = function()
-            return require("codecompanion.adapters").extend("gemini_cli", {
-              defaults = {
-                timeout = 50000,
-              },
-            })
-          end,
-        },
-      },
-      log_level = "DEBUG",
-      adapter = {
-        opts = {
-          show_model_choices = true,
-        },
-      },
-      strategies = {
-        chat = {
-          adapter = "gemini_cli",
-          variables = {
-            ["buffer"] = {
-              opts = {
-                default_params = "watch", -- or 'watch'
-              },
-            },
-          },
-        },
-      },
-      extensions = {
-        -- history = {
-        --   enabled = true,
-        --   opts = {
-        --     -- Keymap to open history from chat buffer (default: gh)
-        --     keymap = "gh",
-        --     -- Keymap to save the current chat manually (when auto_save is disabled)
-        --     save_chat_keymap = "sc",
-        --     -- Save all chats by default (disable to save only manually using 'sc')
-        --     auto_save = true,
-        --     -- Number of days after which chats are automatically deleted (0 to disable)
-        --     expiration_days = 5,
-        --     -- Picker interface ("telescope" or "snacks" or "fzf-lua" or "default")
-        --     picker = "fzf-lua",
-        --     ---Automatically generate titles for new chats
-        --     auto_generate_title = true,
-        --     title_generation_opts = {
-        --       ---Adapter for generating titles (defaults to active chat's adapter)
-        --       adapter = nil, -- e.g "copilot"
-        --       ---Model for generating titles (defaults to active chat's model)
-        --       model = nil, -- e.g "gpt-4o"
-        --     },
-        --     ---On exiting and entering neovim, loads the last chat on opening chat
-        --     continue_last_chat = true,
-        --     ---When chat is cleared with `gx` delete the chat from history
-        --     delete_on_clearing_chat = true,
-        --     ---Directory path to save the chats
-        --     dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
-        --     ---Enable detailed logging for history extension
-        --     enable_logging = false,
-        --   },
-        -- },
-        -- vectorcode = {
-        --   opts = {
-        --     add_tool = true,
-        --   },
-        -- },
-        -- mcphub = {
-        --   callback = "mcphub.extensions.codecompanion",
-        --   opts = {
-        --     show_result_in_chat = true, -- Show mcp tool results in chat
-        --     make_vars = true, -- Convert resources to #variables
-        --     make_slash_commands = true, -- Add prompts as /slash commands
-        --   },
-        -- },
-      },
-    },
-    keys = {
-      { "<leader>aa", "<cmd>CodeCompanionChat<cr>", desc = "Toggle CodeCompanion Chat" },
-      { "<leader>ap", "<cmd>CodeCompanionActions<cr>", desc = "Prompt Actions (CodeCompanion" },
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "ravitemer/codecompanion-history.nvim",
-    },
-  },
+  -- {
+  --   "olimorris/codecompanion.nvim",
+  --   lazy = true,
+  --   opts = {
+  --     adapters = {
+  --       acp = {
+  --         gemini_cli = function()
+  --           return require("codecompanion.adapters").extend("gemini_cli", {
+  --             defaults = {
+  --               timeout = 50000,
+  --             },
+  --           })
+  --         end,
+  --       },
+  --     },
+  --     log_level = "DEBUG",
+  --     adapter = {
+  --       opts = {
+  --         show_model_choices = true,
+  --       },
+  --     },
+  --     strategies = {
+  --       chat = {
+  --         adapter = "gemini_cli",
+  --         variables = {
+  --           ["buffer"] = {
+  --             opts = {
+  --               default_params = "watch", -- or 'watch'
+  --             },
+  --           },
+  --         },
+  --       },
+  --     },
+  --     extensions = {
+  --       -- history = {
+  --       --   enabled = true,
+  --       --   opts = {
+  --       --     -- Keymap to open history from chat buffer (default: gh)
+  --       --     keymap = "gh",
+  --       --     -- Keymap to save the current chat manually (when auto_save is disabled)
+  --       --     save_chat_keymap = "sc",
+  --       --     -- Save all chats by default (disable to save only manually using 'sc')
+  --       --     auto_save = true,
+  --       --     -- Number of days after which chats are automatically deleted (0 to disable)
+  --       --     expiration_days = 5,
+  --       --     -- Picker interface ("telescope" or "snacks" or "fzf-lua" or "default")
+  --       --     picker = "fzf-lua",
+  --       --     ---Automatically generate titles for new chats
+  --       --     auto_generate_title = true,
+  --       --     title_generation_opts = {
+  --       --       ---Adapter for generating titles (defaults to active chat's adapter)
+  --       --       adapter = nil, -- e.g "copilot"
+  --       --       ---Model for generating titles (defaults to active chat's model)
+  --       --       model = nil, -- e.g "gpt-4o"
+  --       --     },
+  --       --     ---On exiting and entering neovim, loads the last chat on opening chat
+  --       --     continue_last_chat = true,
+  --       --     ---When chat is cleared with `gx` delete the chat from history
+  --       --     delete_on_clearing_chat = true,
+  --       --     ---Directory path to save the chats
+  --       --     dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
+  --       --     ---Enable detailed logging for history extension
+  --       --     enable_logging = false,
+  --       --   },
+  --       -- },
+  --       -- vectorcode = {
+  --       --   opts = {
+  --       --     add_tool = true,
+  --       --   },
+  --       -- },
+  --       -- mcphub = {
+  --       --   callback = "mcphub.extensions.codecompanion",
+  --       --   opts = {
+  --       --     show_result_in_chat = true, -- Show mcp tool results in chat
+  --       --     make_vars = true, -- Convert resources to #variables
+  --       --     make_slash_commands = true, -- Add prompts as /slash commands
+  --       --   },
+  --       -- },
+  --     },
+  --   },
+  --   keys = {
+  --     { "<leader>aa", "<cmd>CodeCompanionChat<cr>", desc = "Toggle CodeCompanion Chat" },
+  --     { "<leader>ap", "<cmd>CodeCompanionActions<cr>", desc = "Prompt Actions (CodeCompanion" },
+  --   },
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "ravitemer/codecompanion-history.nvim",
+  --   },
+  -- },
 }

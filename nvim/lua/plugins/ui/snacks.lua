@@ -36,9 +36,9 @@ return {
       picker = {
         --INFO: adds relativenumber to explorer
         sources = {
-          files = {
-            hidden = true,
-          },
+          -- files = {
+          --   hidden = true,
+          -- },
           explorer = {
             win = {
               list = {
@@ -54,9 +54,11 @@ return {
             },
           },
         },
-        -- matcher = {
-        --   frecency = true,
-        -- },
+        matcher = {
+          cwd_bonus = true,
+          frecency = true,
+          sort_empty = true,
+        },
         layouts = {
           sidebar = {
             layout = {

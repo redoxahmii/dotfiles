@@ -35,3 +35,11 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+
+[credential]
+	helper = store
+[user]
+	email = fullmetal2334@gmail.com
+	name = Redoxahmii
+[safe]
+	directory = /usr/share/zsh/plugins/zsh-autocomplete

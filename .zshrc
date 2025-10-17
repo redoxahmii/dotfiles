@@ -120,10 +120,7 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 #   --color=scrollbar:#063540 \
 #   --color=separator:#063540 \
 #   --color=spinner:#c94c16 \
-# "
-export NVM_DIR=~/.nvm
- [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+source /usr/share/nvm/init-nvm.sh
