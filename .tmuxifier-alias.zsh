@@ -8,6 +8,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export GOPATH=$HOME/go/
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.config/tmux/plugins/tmuxifier/bin
+export PATH=/home/redox/.local/bin:$PATH
 export PATH=$PATH:$HOME/.local/bin/
 alias sudoedit='sudo -e'
 eval "$(tmuxifier init -)"

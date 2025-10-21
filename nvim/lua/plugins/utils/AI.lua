@@ -17,6 +17,7 @@ return {
   -- },
   -- {
   --   "gutsavgupta/nvim-gemini-companion",
+  --   branch = "feat/tmux-integration",
   --   dependencies = {
   --     "nvim-lua/plenary.nvim",
   --   },
@@ -32,7 +33,6 @@ return {
   --       --   height = 0.8,
   --       -- },
   --     })
-  --     require("gemini").setup()
   --   end,
   --   keys = {
   --     { "<leader>gG", "<cmd>GeminiToggle<cr>", desc = "Toggle Gemini CLI" },

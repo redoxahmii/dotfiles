@@ -55,9 +55,6 @@ return {
           path = "~/Code/Obsidian/",
         },
       },
-      pickers = {
-        name = "fzf-lua",
-      },
     },
   },
 }

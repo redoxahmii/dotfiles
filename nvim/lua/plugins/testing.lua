@@ -5,6 +5,13 @@ return {
     version = "*",
     opts = {},
   },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      current_line_blame = true,
+    },
+  },
+
   -- {
   --   "amitds1997/remote-nvim.nvim",
   --   version = "*", -- Pin to GitHub releases
@@ -30,36 +37,6 @@ return {
     --     },
     --   },
     -- },
-  },
-  {
-    "folke/sidekick.nvim",
-    opts = {
-      nes = {
-        enabled = false,
-      },
-      cli = {
-        mux = {
-          backend = "tmux",
-          enabled = true,
-        },
-      },
-    },
-  },
-  {
-    "zerochae/endpoint.nvim",
-    dev = false,
-    dependencies = {
-      "folke/snacks.nvim",
-    },
-    cmd = { "Endpoint" },
-    opts = {
-      picker = {
-        type = "snacks",
-      },
-    },
-    keys = {
-      { "<leader>ce", "<cmd>Endpoint<cr>", desc = "Show Endpoints in a Project" },
-    },
   },
   {
     "LazyVim/LazyVim",
