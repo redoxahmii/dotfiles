@@ -4,9 +4,9 @@ return {
   lazy = true,
   config = function()
     require("incline").setup({
-      window = { margin = { vertical = 0, horizontal = 1 } },
+      window = { margin = { vertical = 1, horizontal = 1 } },
       hide = {
-        cursorline = true,
+        cursorline = false,
       },
       render = function(props)
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
@@ -15,7 +15,22 @@ return {
         end
 
         local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-        return { { icon, guifg = color }, { " " }, { filename } }
+
+        local elements = {
+          { icon, guifg = color },
+          { " " },
+          { filename },
+        }
+
+        local has_sidekick, sidekick_status = pcall(require, "sidekick.status")
+        if has_sidekick then
+          local sessions = sidekick_status.cli()
+          if #sessions > 0 then
+            table.insert(elements, 3, { "𜱛 ", group = "Special" })
+          end
+        end
+
+        return elements
       end,
     })
   end,

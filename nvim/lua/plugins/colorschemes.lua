@@ -46,7 +46,7 @@ return {
         day_brightness = 0.3,
         styles = {
           sidebars = "transparent",
-          floats = "transparent",
+          -- floats = "transparent",
         },
         on_highlights = function(hl, c)
           local util = require("solarized-osaka.util")
