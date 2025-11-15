@@ -11,7 +11,23 @@ return {
       current_line_blame = true,
     },
   },
-
+  -- {
+  --   "rachartier/tiny-glimmer.nvim",
+  --   event = "VeryLazy",
+  --   priority = 10, -- Low priority to catch other plugins' keybindings
+  --   config = function()
+  --     require("tiny-glimmer").setup({
+  --       overwrite = {
+  --         undo = {
+  --           enabled = true,
+  --         },
+  --         redo = {
+  --           enabled = true,
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
   -- {
   --   "amitds1997/remote-nvim.nvim",
   --   version = "*", -- Pin to GitHub releases
@@ -38,10 +54,10 @@ return {
     --   },
     -- },
   },
-  {
-    "LazyVim/LazyVim",
-    version = false,
-  },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   version = false,
+  -- },
   -- {
   --   "brenoprata10/nvim-highlight-colors",
   --   event = "BufRead",

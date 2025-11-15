@@ -6,12 +6,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
--- INFO: set ft for zsh files
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*.zsh",
-  command = "set ft=bash",
-})
-
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.mdx",
   command = "set ft=markdown",

@@ -2,9 +2,12 @@ local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
 map("n", "<leader>rr", require("redox.nice").remove_comments, { desc = "Remove comments" })
+map("n", "<leader>gp", require("redox.nice").open_plugin_github, { desc = "Open Plugin Github" })
+map("n", "<leader>ra", require("redox.nice").fix_unescaped_entities, { desc = "Fix unescaped entities" })
+map("n", "<leader>gu", require("redox.nice").open_git_changes, { desc = "Open all git changes" })
+
 -- vim.keymap.set({ "v" }, "<Leader>re", require("react-extract").extract_to_current_file)
 -- vim.keymap.set({ "v" }, "<Leader>rw", require("react-extract").extract_to_new_file)
-map("n", "<leader>t", '<cmd>:lua Snacks.terminal({"trans"})<cr>', { desc = "Launch Translator" })
 -- vim.keymap.del("n", "<C-/>", opts)
 --
 vim.keymap.del({ "n", "t" }, "<c-/>")
@@ -27,11 +30,6 @@ end, { desc = "Replace Hex with HSL" })
 map("n", "<leader>rq", function()
   require("redox.hsl").replaceHSLtoHex()
 end, { desc = "Replace HSL with Hex" })
-
---INFO: Enter to add spaces
-map("n", "<CR>", "o<Esc>", opts)
-map("n", "<CR>", "o<Esc>", opts)
-map("n", "<S-Enter>", "O<Esc>", opts)
 
 --INFO: Keep my yank register clean
 map("n", "d", '"dd', opts)

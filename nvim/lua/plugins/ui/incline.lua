@@ -3,34 +3,37 @@ return {
   event = "BufReadPre",
   lazy = true,
   config = function()
+    local helpers = require("incline.helpers")
+    local devicons = require("nvim-web-devicons")
     require("incline").setup({
-      window = { margin = { vertical = 1, horizontal = 1 } },
-      hide = {
-        cursorline = false,
+      window = {
+        padding = 0,
+        margin = { horizontal = 0, vertical = 0 },
       },
       render = function(props)
-        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-        if vim.bo[props.buf].modified then
-          filename = "[+] " .. filename
+        local filepath = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":p:.")
+        if filepath == "" then
+          filepath = "[No Name]"
         end
-
-        local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-
-        local elements = {
-          { icon, guifg = color },
-          { " " },
-          { filename },
+        local ft_icon, ft_color = devicons.get_icon_color(filepath)
+        local modified = vim.bo[props.buf].modified
+        local res = {
+          ft_icon and { " ", ft_icon, " ", guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or "",
+          " ",
+          { filepath, gui = modified and "bold,italic" or "bold" },
+          group = "Normal",
         }
 
         local has_sidekick, sidekick_status = pcall(require, "sidekick.status")
         if has_sidekick then
           local sessions = sidekick_status.cli()
           if #sessions > 0 then
-            table.insert(elements, 3, { "𜱛 ", group = "Special" })
+            table.insert(res, 2, { " 𜱛", group = "Special" })
           end
         end
 
-        return elements
+        table.insert(res, " ")
+        return res
       end,
     })
   end,

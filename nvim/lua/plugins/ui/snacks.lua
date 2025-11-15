@@ -36,9 +36,9 @@ return {
       picker = {
         --INFO: adds relativenumber to explorer
         sources = {
-          -- files = {
-          --   hidden = true,
-          -- },
+          files = {
+            hidden = true,
+          },
           explorer = {
             win = {
               list = {
@@ -57,7 +57,7 @@ return {
         matcher = {
           cwd_bonus = true,
           frecency = true,
-          sort_empty = true,
+          sort_empty = false,
         },
         layouts = {
           sidebar = {
@@ -86,20 +86,35 @@ return {
       dashboard = {
         preset = {
           keys = {
-            { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
             { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-            { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
             {
               icon = " ",
               key = "c",
               desc = "Config",
               action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
             },
+
             { icon = " ", key = "s", desc = "Restore Session", section = "session" },
             { icon = "󱞁 ", key = "w", desc = "Obsidian Notes", action = ":ObsidianQuickSwitch" },
             { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+            {
+              icon = " ",
+              desc = "Browse Repo",
+              key = "b",
+              action = function()
+                Snacks.gitbrowse()
+              end,
+            },
+            {
+              icon = " ",
+              desc = "Open current changes",
+              key = "g",
+              action = function()
+                require("redox.nice").open_git_changes()
+              end,
+            },
           },
 
           header = [[
@@ -124,15 +139,6 @@ return {
           -- },
           { icon = " ", title = "Recent Files", section = "recent_files", limit = 4, padding = 1 },
           { section = "keys", gap = 1, padding = 1 },
-          -- {
-          --   pane = 2,
-          --   icon = " ",
-          --   desc = "Browse Repo",
-          --   key = "b",
-          --   action = function()
-          --     Snacks.gitbrowse()
-          --   end,
-          -- },
           -- {
           --   pane = 2,
           --   icon = " ",

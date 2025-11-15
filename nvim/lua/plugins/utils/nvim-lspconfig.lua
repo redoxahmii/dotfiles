@@ -112,11 +112,11 @@ return {
           -- root_dir = function(...)
           --   return require("lspconfig.util").root_pattern(".git")(...)
           -- end,
-          settings = {
-            implicitProjectConfiguration = {
-              checkJs = true,
-            },
-          },
+          -- settings = {
+          --   implicitProjectConfiguration = {
+          --     checkJs = true,
+          --   },
+          -- },
           handlers = {
             ["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
               if result.diagnostics == nil then
