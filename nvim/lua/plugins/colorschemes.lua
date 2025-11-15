@@ -19,7 +19,7 @@ return {
   },
   {
     "catppuccin",
-    enabled = true,
+    enabled = false,
   },
   -- {
   --   "maxmx03/solarized.nvim",

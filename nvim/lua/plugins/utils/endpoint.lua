@@ -1,7 +1,6 @@
 return {
   {
     "zerochae/endpoint.nvim",
-    dev = false,
     dependencies = {
       "folke/snacks.nvim",
     },

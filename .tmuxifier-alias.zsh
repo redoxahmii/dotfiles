@@ -10,6 +10,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.config/tmux/plugins/tmuxifier/bin
 export PATH=/home/redox/.local/bin:$PATH
 export PATH=$PATH:$HOME/.local/bin/
+export PATH="/var/lib/flatpak/exports/bin:$PATH"
 alias sudoedit='sudo -e'
 eval "$(tmuxifier init -)"
 export EDITOR=nvim

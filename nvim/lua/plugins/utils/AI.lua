@@ -17,7 +17,6 @@ return {
   -- },
   -- {
   --   "gutsavgupta/nvim-gemini-companion",
-  --   branch = "feat/tmux-integration",
   --   dependencies = {
   --     "nvim-lua/plenary.nvim",
   --   },
@@ -35,13 +34,13 @@ return {
   --     })
   --   end,
   --   keys = {
-  --     { "<leader>gG", "<cmd>GeminiToggle<cr>", desc = "Toggle Gemini CLI" },
+  --     { "<leader>gG", "<cmd>GeminiSwitchToCli tmux qwen<cr>", desc = "Toggle Gemini CLI" },
   --     { "<leader>gc", "<cmd>GeminiClose<cr>", desc = "Close Gemini CLI process" },
   --     { "<leader>ga", "<cmd>GeminiAccept<cr>", desc = "Accept Gemini suggested changes" },
   --     { "<leader>gr", "<cmd>GeminiReject<cr>", desc = "Reject Gemini suggested changes" },
   --     { "<leader>gD", "<cmd>GeminiSendFileDiagnostic<cr>", desc = "Send File Diagnostics" },
   --     { "<leader>gd", "<cmd>GeminiSendLineDiagnostic<cr>", desc = "Send Line Diagnostics" },
-  --     { "<leader>gs", "<cmd>GeminiSwitchSidebarStyle<cr>", desc = "Switch Sidebar Style" },
+  --     -- { "<leader>gs", "<cmd>GeminiSwitchSidebarStyle<cr>", desc = "Switch Sidebar Style" },
   --   },
   -- },
   -- {
