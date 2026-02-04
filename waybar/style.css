@@ -149,6 +149,35 @@ window#waybar {
   color: #7dcfff;
   /* Tokyo Night cyan */
 }
+/* Bluetooth module */
+#bluetooth {
+  color: #7aa2f7; /* Tokyo Night blue */
+}
+
+#bluetooth.disabled {
+  color: #a9b1d6; /* Tokyo Night color7 (lighter gray) */
+  font-size: 15px;
+}
+
+#bluetooth.off {
+  color: #a9b1d6; /* Tokyo Night color7 (lighter gray) */
+}
+
+#bluetooth.on {
+  color: #7aa2f7; /* Tokyo Night blue */
+}
+
+#bluetooth.connected {
+  color: #bb9af7; /* Tokyo Night purple */
+}
+
+#bluetooth.discoverable {
+  color: #e0af68; /* Tokyo Night yellow */
+}
+
+#bluetooth.discovering {
+  color: #f7768e; /* Tokyo Night red */
+}
 
 /* Tray module */
 #tray {
