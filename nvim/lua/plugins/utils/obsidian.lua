@@ -3,13 +3,13 @@ return {
   {
     "obsidian-nvim/obsidian.nvim",
     -- version = "*",
-    lazy = true,
+    lazy = false,
     dev = false,
-    cmd = "ObsidianQuickSwitch",
+    cmd = "Obsidian quick_switch",
     ft = "markdown",
     keys = {
-      { "<leader>wW", mode = "n", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian Notes" },
-      { "<leader>ci", mode = "n", "<cmd>ObsidianPasteImg<cr>", desc = "Paste Image" },
+      { "<leader>wW", mode = "n", "<cmd>Obsidian quick_switch<cr>", desc = "Obsidian Notes" },
+      { "<leader>ci", mode = "n", "<cmd>Obsidian paste_img<cr>", desc = "Paste Image" },
     },
 
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
@@ -24,17 +24,19 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     opts = {
+      legacy_commands = false,
+      frontmatter = {
+        enabled = function()
+          -- get name of current file
+          local file_name = vim.fn.expand("%:t")
+          if file_name == "daily.md" then
+            return true
+          end
+        end,
+      },
       ui = {
         enable = false,
       },
-      disable_frontmatter = function()
-        -- get name of current file
-        local file_name = vim.fn.expand("%:t")
-        if file_name == "daily.md" then
-          return true
-        end
-      end,
-
       templates = {
         folder = "Templates",
       },
@@ -43,12 +45,12 @@ return {
         template = "/Daily Notes.md",
       },
       attachments = {
-        img_folder = "Images",
+        folder = "Images",
       },
-      follow_url_func = function(url)
-        vim.notify("Opening URL: " .. url, vim.log.levels.INFO)
-        vim.fn.jobstart({ "xdg-open", url }) -- linux
-      end,
+      -- follow_url_func = function(url)
+      --   vim.notify("Opening URL: " .. url, vim.log.levels.INFO)
+      --   vim.fn.jobstart({ "xdg-open", url }) -- linux
+      -- end,
       workspaces = {
         {
           name = "personal",

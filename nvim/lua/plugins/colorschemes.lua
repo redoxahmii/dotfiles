@@ -63,6 +63,7 @@ return {
           hl["keyword.javascript"] = { fg = util.darken(c.green500, 0.85) }
           hl["keyword.return.javascript"] = { fg = util.darken(c.green500, 0.85) }
           hl.CursorLineNr = { fg = c.cyan500, bold = true }
+          hl.CursorLine = { bg = c.base04 }
           hl.LineNrAbove = { fg = c.orange700 }
           hl.LineNrBelow = { fg = c.orange700 }
           hl.BlinkCmpMenu = { fg = c.base01, bg = c.none }

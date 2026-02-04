@@ -1,9 +1,7 @@
 {
-  "layer": "top",
   "ipc": true,
   "position": "top",
   "height": 30,
-  "reload_style_on_change": true,
   "layer-shell": {
     "exclusive-zone": true,
     "visibility": "toggleable"
@@ -14,13 +12,11 @@
     "custom/pomodoro",
     "custom/power-toggle",
     "pulseaudio",
-    // "backlight/slider",
     "network",
-    "cpu",
     "memory",
+    "bluetooth",
     "battery",
     "tray",
-    // "bluetooth",
     "clock"
   ],
   "hyprland/workspaces": {
@@ -69,18 +65,10 @@
     "tooltip": false,
     "format-alt": "{:%A %d %b %Y }"
   },
-  "cpu": {
-    "format": "{usage}%  ",
-    "interval": 5
-  },
   "memory": {
     "format": "{}%  ",
     "interval": 5
   },
-  // "backlight/slider": {
-  //   "min": 0,
-  //   "max": 100
-  // },
   "battery": {
     "bat": "BAT0",
     "states": {
@@ -105,16 +93,13 @@
   "pulseaudio": {
     //"scroll-step": 1,
     "format": "{volume}%  {icon}",
-    "format-bluetooth": "{volume}% {icon}",
+    // "format-bluetooth": "{volume}% ",
     "format-muted": "",
     // ISSUE: icons not working because runs it through easyeffect sink
     "format-icons": {
       "headphones": "",
-      "handsfree": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
+      "handsfree": "",
+      "headset": "",
       "default": ["", ""]
     },
     "on-click": "pavucontrol"
@@ -142,12 +127,16 @@
     "exec": "$HOME/.config/waybar/scripts/pomodoro.sh",
     "on-click": "~/.local/bin/waybar-module-pomodoro toggle",
     "on-click-right": "~/.local/bin/waybar-module-pomodoro reset"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected-battery": "{device_battery_percentage}%  ",
+    "tooltip-format-connected": "{device_alias}",
+    "format-off": "󰂲",
+    "interval": 5,
+    "on-click": "kcmshell6 kcm_bluetooth",
+    "on-click-right": "bluetoothctl connect 3C:B0:ED:F4:84:C8",
+    "on-click-middle": "bluetoothctl disconnect 3C:B0:ED:F4:84:C8"
   }
-  // "bluetooth": {
-  //   "format": " {status}",
-  //   "format-disabled": "Hello",
-  //   "format-off": " ",
-  //   "interval": 4,
-  //   "on-click": "blueberry"
-  // }
 }

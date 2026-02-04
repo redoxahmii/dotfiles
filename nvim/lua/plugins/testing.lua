@@ -11,6 +11,14 @@ return {
       current_line_blame = true,
     },
   },
+  {
+    "iamyoki/buffer-reopen.nvim",
+    lazy = false,
+    opts = {},
+    keys = {
+      { "<leader>bt", mode = { "n" }, "<cmd>BufferHistory reopen<cr>" },
+    },
+  },
   -- {
   --   "rachartier/tiny-glimmer.nvim",
   --   event = "VeryLazy",

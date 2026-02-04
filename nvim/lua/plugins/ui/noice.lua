@@ -6,16 +6,16 @@ return {
     -- opts.lsp.signature = {
     --   auto_open = { enabled = false },
     -- }
-    opts.cmdline = {
-      view = "cmdline",
-      format = {
-        cmdline = false,
-        search = false,
-        filter = false,
-        lua = false,
-        help = false,
-      },
-    }
+    -- opts.cmdline = {
+    --   view = "cmdline",
+    --   format = {
+    --     cmdline = false,
+    --     search = false,
+    --     filter = false,
+    --     lua = false,
+    --     help = false,
+    --   },
+    -- }
     table.insert(opts.routes, {
       filter = {
         event = "notify",
