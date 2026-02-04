@@ -21,7 +21,7 @@ return {
           max_width = 45,
           max_height = 20,
         },
-        img_dirs = { "Images", "images", "assets", "attachments" },
+        img_dirs = { "Images", "images", "assets", "attachments", "public" },
       },
       indent = {
         scope = {
@@ -95,7 +95,7 @@ return {
             },
 
             { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-            { icon = "󱞁 ", key = "w", desc = "Obsidian Notes", action = ":ObsidianQuickSwitch" },
+            { icon = "󱞁 ", key = "w", desc = "Obsidian Notes", action = ":Obsidian quick_switch" },
             { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },

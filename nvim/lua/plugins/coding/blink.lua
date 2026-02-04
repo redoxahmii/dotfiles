@@ -9,6 +9,9 @@ return {
     "saghen/blink.cmp",
     dependencies = {
       -- {
+      --   "mgalliou/blink-cmp-tmux",
+      -- },
+      -- {
       --   "Kaiser-Yang/blink-cmp-dictionary",
       --   dependencies = { "nvim-lua/plenary.nvim" },
       -- },
@@ -19,39 +22,30 @@ return {
       keymap = {
         ["<C-u>"] = { "scroll_documentation_up", "fallback" },
         ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+        -- INFO: disable `snippet_forward` from going out of `className="|"` to `className=""| to help with supermaven tab completion`
+        ["<Tab>"] = { "fallback" },
       },
       -- This is having issue for some reason but don't really know and don't have time to be bothered
-      -- sources = {
-      --   default = {
-      --     "lsp",
-      --     "path",
-      --     "snippets",
-      --     "buffer",
-      --     -- "dictionary",
-      --   },
-      --   providers = {
-      --     -- dictionary = {
-      --     --   module = "blink-cmp-dictionary",
-      --     --   name = "Dict",
-      --     --   min_keyword_length = 3,
-      --     --   score_offset = 2,
-      --     --   opts = {
-      --     --     dictionary_directories = { vim.fn.expand("~/.config/nvim/lua/redox/dictionaries/") },
-      --     --     separate_output = function(output)
-      --     --       local items = {}
-      --     --       for line in output:gmatch("[^\r\n]+") do
-      --     --         table.insert(items, {
-      --     --           label = line,
-      --     --           insert_text = line,
-      --     --           documentation = nil,
-      --     --         })
-      --     --       end
-      --     --       return items
-      --     --     end,
-      --     --   },
-      --     -- },
-      --   },
-      -- },
+      sources = {
+        -- default = {
+        --   "tmux",
+        -- },
+        providers = {
+          -- tmux = {
+          --   module = "blink-cmp-tmux",
+          --   name = "tmux",
+          --   -- default options
+          --   opts = {
+          --     all_panes = true,
+          --     capture_history = false,
+          --     -- only suggest completions from `tmux` if the `trigger_chars` are
+          --     -- used
+          --     triggered_only = false,
+          --     trigger_chars = { "." },
+          --   },
+          -- },
+        },
+      },
 
       -- fuzzy = {
       --   sorts = {
@@ -70,7 +64,7 @@ return {
         menu = {
           scrollbar = false,
           auto_show = true,
-          -- winblend = vim.o.pumblend,
+          winblend = vim.o.pumblend,
           draw = {
             treesitter = {},
             columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },

@@ -1,9 +1,14 @@
 --INFO : Disable autoformat for .env files
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*.env",
+  pattern = "*.env*",
   callback = function()
     vim.b.autoformat = false
   end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = ".env*",
+  command = "set ft=sh",
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {

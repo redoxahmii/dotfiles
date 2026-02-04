@@ -25,6 +25,7 @@ window#waybar {
 #custom-power-toggle,
 #network,
 #pulseaudio,
+#bluetooth,
 #custom-spotify {
   border-radius: 20px;
   padding: 0 8px;
@@ -40,6 +41,7 @@ window#waybar {
 #memory:hover,
 #network:hover,
 #pulseaudio:hover,
+#bluetooth:hover,
 #custom-pomodoro:hover,
 #custom-power-toggle:hover,
 #custom-spotify:hover {
