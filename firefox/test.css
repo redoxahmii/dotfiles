@@ -1,0 +1,554 @@
+/*==============================================================================================*
+
+  FoxOne — A minimalist one-line Firefox theme
+  Based on Cascade by Andreas Grafen (https://github.com/andreasgrafen/cascade)
+  Inspired by LittleFox (https://github.com/biglavis/LittleFox)
+  MIT License
+
+*==============================================================================================*/
+
+/* ==========================================================================
+   CONFIG
+   ========================================================================== */
+
+:root {
+  /* Global Border Radius — applied to all UI elements */
+  --uc-border-radius: 8px;
+
+  /* Statuspanel distance from window border (0 = corner) */
+  --uc-status-panel-spacing: 12px;
+
+  /* Personal Toolbar position (0 = top, 4 = bottom) */
+  --uc-toolbar-position: 4;
+
+  /* URL Bar width (min applied normally, max on focus) */
+  --uc-urlbar-min-width: 35vw;
+  --uc-urlbar-max-width: 50vw;
+
+  /* URL Bar position (1 = tabs right, 3 = tabs left) */
+  --uc-urlbar-position: 1;
+
+  /* Vertical URL Bar spacing adjustment */
+  --uc-urlbar-top-spacing: 1px;
+
+  /* Dynamic tab widths */
+  --uc-active-tab-width: clamp(100px, 30vw, 250px);
+  --uc-inactive-tab-width: clamp(100px, 20vw, 200px);
+
+  /* Tab close button (none = hidden, -moz-inline-block = visible) */
+  --show-tab-close-button: none;
+  --show-tab-close-button-hover: -moz-inline-block;
+
+  /* All-tabs button (none = hidden, -moz-box = visible) */
+  --uc-show-all-tabs-button: none;
+
+  /* Container tab indicator */
+  --container-tabs-indicator-margin: 10px;
+  --uc-identity-glow: 0 1px 10px 1px;
+
+  /* Windows control button width — used for Hamburger positioning */
+  --uc-window-buttons-width: 138px;
+
+  /* Hamburger button width — reserved in tab bar to prevent overlap */
+  --uc-hamburger-width: 44px;
+
+  /* Extra toolbar button width (extensions, uBlock etc.) */
+  --uc-toolbar-button-width: 36px;
+}
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+
+#toolbar-menubar {
+  &[autohide] {
+    &[inactive]:not([customizing]) {
+      width: 0px;
+    }
+  }
+}
+
+#main-window,
+#toolbar-menubar,
+#TabsToolbar,
+#navigator-toolbox,
+#sidebar-box,
+#nav-bar {
+  box-shadow: none !important;
+}
+
+#main-window,
+#toolbar-menubar,
+#TabsToolbar,
+#PersonalToolbar,
+#navigator-toolbox,
+#sidebar-box,
+#nav-bar {
+  border: none !important;
+}
+
+.titlebar-spacer {
+  display: none !important;
+}
+
+/* fix Shield Icon padding */
+#urlbar-input-container[pageproxystate="valid"]
+  > #tracking-protection-icon-container
+  > #tracking-protection-icon-box
+  > #tracking-protection-icon {
+  padding-bottom: 1px;
+}
+
+#TabsToolbar {
+  order: 2;
+}
+#nav-bar {
+  order: 3;
+}
+
+#PersonalToolbar {
+  padding: 6px !important;
+  box-shadow: inset 0 0 50vh rgba(0, 0, 0, var(--uc-darken-toolbar)) !important;
+  order: var(--uc-toolbar-position);
+  width: 100%;
+}
+
+#statuspanel #statuspanel-label {
+  border: none !important;
+  border-radius: var(--uc-border-radius) !important;
+  margin: 0 0 var(--uc-status-panel-spacing) var(--uc-status-panel-spacing) !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE — One-line layout at >= 1000px
+   ========================================================================== */
+
+@media (min-width: 1000px) {
+  #navigator-toolbox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  #nav-bar {
+    order: var(--uc-urlbar-position);
+    width: var(--uc-urlbar-min-width);
+    transition: width 0.25s ease;
+    &.browser-titlebar {
+      width: 100%;
+    }
+  }
+
+  #nav-bar #urlbar-container {
+    min-width: 0px !important;
+    width: auto !important;
+  }
+
+  #titlebar {
+    width: calc(100vw - var(--uc-urlbar-min-width) - 1px);
+    transition: width 0.25s ease;
+  }
+
+  #TabsToolbar {
+    width: 100%;
+  }
+
+  #tabbrowser-tabs {
+    max-width: calc(
+      100% - var(--uc-window-buttons-width) - var(--uc-hamburger-width)
+    ) !important;
+  }
+
+  #navigator-toolbox:focus-within #nav-bar {
+    width: var(--uc-urlbar-max-width);
+    &.browser-titlebar {
+      width: 100%;
+    }
+  }
+  #navigator-toolbox:focus-within #titlebar {
+    width: calc(100vw - var(--uc-urlbar-max-width) - 1px);
+  }
+}
+
+/* ==========================================================================
+   NAV BAR
+   ========================================================================== */
+
+#navigator-toolbox:not(:-moz-lwtheme) {
+  background: var(--toolbar-field-background-color) !important;
+}
+
+/* kill toolbar–content separator (covers all known Firefox versions) */
+#navigator-toolbox::after,
+#navigator-toolbox::before {
+  display: none !important;
+  height: 0 !important;
+  border: none !important;
+}
+
+:root {
+  --chrome-content-separator-color: transparent !important;
+}
+
+#navigator-toolbox {
+  border-bottom: 0 solid transparent !important;
+}
+
+#browser,
+#appcontent,
+#tabbrowser-tabbox {
+  border-top: none !important;
+}
+
+#nav-bar {
+  padding-block-start: 0px !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+#urlbar,
+#urlbar * {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#urlbar-background {
+  border: transparent !important;
+}
+
+#urlbar[focused="true"] > #urlbar-background,
+#urlbar:not([open]) > #urlbar-background {
+  background: var(--uc-highlight-colour) !important;
+}
+
+#urlbar[open] > #urlbar-background {
+  background: var(--toolbar-field-background-color) !important;
+}
+
+.urlbarView-row:hover > .urlbarView-row-inner,
+.urlbarView-row[selected] > .urlbarView-row-inner {
+  background: var(--toolbar-field-focus-background-color) !important;
+}
+
+.urlbar-icon,
+#urlbar-go-button {
+  margin: auto;
+}
+
+.urlbar-page-action {
+  padding: 0 inherit !important;
+}
+
+/* ==========================================================================
+   HIDDEN ELEMENTS
+   ========================================================================== */
+
+#pageActionButton {
+  display: none !important;
+}
+#urlbar-go-button {
+  display: none !important;
+}
+
+#identity-permission-box {
+  max-width: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  margin-inline: 0 !important;
+  padding-inline: 0 !important;
+  transition:
+    max-width 0.2s ease,
+    opacity 0.2s ease,
+    margin-inline 0.2s ease,
+    padding-inline 0.2s ease !important;
+}
+
+#nav-bar:hover #identity-permission-box,
+#urlbar[focused="true"] #identity-permission-box {
+  max-width: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  margin-inline: revert !important;
+  padding-inline: revert !important;
+}
+
+/* Always show active permissions (granted camera/mic/location) and sharing
+   icons (active stream) — security indicator should not depend on focus.
+   Firefox sets [hasPermissions] also for blocked-only permissions (e.g.
+   autoplay), so we exclude those via :not(:has(.blocked-permission-icon))
+   to keep blocked icons hover/focus-revealed like the rest of FoxOne. */
+#identity-permission-box[hasPermissions]:not(:has(.blocked-permission-icon)),
+#identity-permission-box[hasSharingIcon] {
+  max-width: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  margin-inline: revert !important;
+  padding-inline: revert !important;
+}
+
+#identity-box.extensionPage {
+  display: none !important;
+}
+
+/* Hide unwanted page action icons — reveal on hover/focus */
+#reader-mode-button,
+#taskbar-tabs-button,
+#translations-button,
+#pageAction-urlbar-_testpilot-containers,
+#pageAction-urlbar-_e26226b8-5263-4b42-9789-504fde4443b3_ {
+  max-width: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition:
+    max-width 0.2s ease,
+    opacity 0.2s ease,
+    padding 0.2s ease,
+    margin 0.2s ease !important;
+}
+
+#nav-bar:hover #reader-mode-button,
+#nav-bar:hover #taskbar-tabs-button,
+#nav-bar:hover #translations-button,
+#nav-bar:hover #pageAction-urlbar-_testpilot-containers,
+#nav-bar:hover #pageAction-urlbar-_e26226b8-5263-4b42-9789-504fde4443b3_,
+#urlbar[focused="true"] #reader-mode-button,
+#urlbar[focused="true"] #taskbar-tabs-button,
+#urlbar[focused="true"] #translations-button,
+#urlbar[focused="true"] #pageAction-urlbar-_testpilot-containers,
+#urlbar[focused="true"]
+  #pageAction-urlbar-_e26226b8-5263-4b42-9789-504fde4443b3_ {
+  max-width: 30px !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  padding: 6px !important;
+  margin: 0 !important;
+}
+
+/* Hide private browsing indicator */
+.private-browsing-indicator-with-label {
+  display: none !important;
+}
+
+/* Hide secondary tab label (e.g. playing indicator text) */
+.tab-secondary-label {
+  display: none !important;
+}
+
+/* Hide vertical tabs new tab button */
+#vertical-tabs-newtab-button {
+  display: none !important;
+}
+
+/* Hide all-tabs button */
+#alltabs-button {
+  display: var(--uc-show-all-tabs-button) !important;
+}
+
+/* ==========================================================================
+   HAMBURGER MENU — fixed position next to Windows control buttons.
+   Only applies in one-line layout (>= 1000px). Below that, the buttons
+   fall back to their natural position in the nav-bar so they don't
+   overlap the tab strip in the two-row layout.
+   ========================================================================== */
+
+@media (min-width: 1000px) {
+  #PanelUI-button {
+    position: fixed !important;
+    right: var(--uc-window-buttons-width) !important;
+    top: 0 !important;
+    height: 44px !important;
+    z-index: 1000 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+}
+
+/* ==========================================================================
+   TABS
+   ========================================================================== */
+
+/* remove gap after pinned tabs */
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
+  > #tabbrowser-arrowscrollbox
+  > .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) {
+  margin-inline-start: 0 !important;
+}
+
+/* remove tab shadow */
+.tabbrowser-tab > .tab-stack > .tab-background {
+  box-shadow: none !important;
+}
+
+/* multi tab selection */
+#tabbrowser-tabs:not([noshadowfortests])
+  .tabbrowser-tab:is([multiselected])
+  > .tab-stack
+  > .tab-background:-moz-lwtheme {
+  outline-color: var(--toolbarseparator-color) !important;
+}
+
+/* tab close button: hidden by default, visible on hover */
+.tabbrowser-tab:not([pinned]) .tab-close-button {
+  display: var(--show-tab-close-button) !important;
+}
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+  display: var(--show-tab-close-button-hover) !important;
+}
+
+/* adaptive tab width */
+.tabbrowser-tab[selected][fadein]:not([pinned]):not(
+    tab-group[collapsed] .tabbrowser-tab
+  ) {
+  max-width: var(--uc-active-tab-width) !important;
+}
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]):not(
+    tab-group[collapsed] .tabbrowser-tab
+  ) {
+  max-width: var(--uc-inactive-tab-width) !important;
+}
+
+/* container tabs indicator */
+#TabsToolbar .tab-context-line {
+  margin: 2px var(--container-tabs-indicator-margin) 0
+    var(--container-tabs-indicator-margin) !important;
+  height: 1px !important;
+}
+.tab-context-line {
+  box-shadow: var(--uc-identity-glow) var(--identity-tab-color) !important;
+}
+
+/* show favicon when media is playing but tab is hovered */
+.tab-icon-image:not([pinned]) {
+  opacity: 1 !important;
+}
+
+/* speaker icon — always visible when tab is playing */
+.tab-icon-overlay:not([crashed]),
+.tab-icon-overlay[pinned][crashed][selected] {
+  top: 5px !important;
+  z-index: 1 !important;
+  padding: 1.5px !important;
+  inset-inline-end: -8px !important;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 10px !important;
+}
+
+.tab-icon-overlay:not([sharing], [crashed]):is(
+    [soundplaying],
+    [muted],
+    [activemedia-blocked]
+  ) {
+  stroke: transparent !important;
+  background: transparent !important;
+  opacity: 1 !important;
+  fill-opacity: 0.8 !important;
+  color: currentColor !important;
+  stroke: var(--toolbar-bgcolor) !important;
+  background-color: var(--toolbar-bgcolor) !important;
+}
+
+.tabbrowser-tab[selected]
+  .tab-icon-overlay:not([sharing], [crashed]):is(
+    [soundplaying],
+    [muted],
+    [activemedia-blocked]
+  ) {
+  stroke: var(--toolbar-bgcolor) !important;
+  background-color: var(--toolbar-bgcolor) !important;
+}
+
+.tab-icon-overlay:not([pinned], [sharing], [crashed]):is(
+    [soundplaying],
+    [muted],
+    [activemedia-blocked]
+  ) {
+  margin-inline-end: 9.5px !important;
+}
+
+.tabbrowser-tab:not([image])
+  .tab-icon-overlay:not([pinned], [sharing], [crashed]) {
+  top: 0 !important;
+  padding: 0 !important;
+  margin-inline-end: 5.5px !important;
+  inset-inline-end: 0 !important;
+}
+
+/* speaker icon hover */
+.tab-icon-overlay:not([crashed])[soundplaying]:hover,
+.tab-icon-overlay:not([crashed])[muted]:hover,
+.tab-icon-overlay:not([crashed])[activemedia-blocked]:hover {
+  color: currentColor !important;
+  stroke: var(--toolbar-color) !important;
+  background-color: var(--toolbar-color) !important;
+  fill-opacity: 0.95 !important;
+}
+
+.tabbrowser-tab[selected] .tab-icon-overlay:not([crashed])[soundplaying]:hover,
+.tabbrowser-tab[selected] .tab-icon-overlay:not([crashed])[muted]:hover,
+.tabbrowser-tab[selected]
+  .tab-icon-overlay:not([crashed])[activemedia-blocked]:hover {
+  color: currentColor !important;
+  stroke: var(--toolbar-color) !important;
+  background-color: var(--toolbar-color) !important;
+  fill-opacity: 0.95 !important;
+}
+
+/* speaker icon colour fix */
+#TabsToolbar .tab-icon-overlay:not([crashed])[soundplaying],
+#TabsToolbar .tab-icon-overlay:not([crashed])[muted],
+#TabsToolbar .tab-icon-overlay:not([crashed])[activemedia-blocked] {
+  color: var(--toolbar-color) !important;
+}
+
+#TabsToolbar .tab-icon-overlay:not([crashed])[soundplaying]:hover,
+#TabsToolbar .tab-icon-overlay:not([crashed])[muted]:hover,
+#TabsToolbar .tab-icon-overlay:not([crashed])[activemedia-blocked]:hover {
+  color: var(--toolbar-bgcolor) !important;
+}
+
+/* selected tab background */
+.tabbrowser-tab[selected] .tab-background {
+  background-color: var(--uc-highlight-colour) !important;
+  outline: none !important;
+}
+.tab-background {
+  margin: 0px !important;
+  border-radius: 0px !important;
+}
+
+/* tab group labels */
+.tab-group-label-container > .tab-group-label {
+  outline: none !important;
+  border-radius: var(--uc-border-radius) !important;
+  width: 100%;
+  color: light-dark(
+    var(--tab-group-color-pale),
+    var(--tab-group-label-text-dark)
+  ) !important;
+  background-color: light-dark(
+    var(--tab-group-color),
+    var(--tab-group-color-invert)
+  ) !important;
+}
+
+/* ==========================================================================
+   FLOATING PANEL
+   ========================================================================== */
+
+#statuspanel #statuspanel-label {
+  margin: 0 0 var(--uc-status-panel-spacing) var(--uc-status-panel-spacing) !important;
+}
+
+/* ==========================================================================
+   SPLIT VIEW BIGGER 
+   ========================================================================== */
+
+tab-split-view-wrapper {
+  --tab-max-width: 300px !important;
+}

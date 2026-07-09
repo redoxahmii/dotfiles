@@ -10,11 +10,11 @@
   "modules-left": ["hyprland/workspaces", "hyprland/submap", "custom/spotify"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
+    "idle_inhibitor",
     "custom/pomodoro",
     "custom/power-toggle",
     "pulseaudio",
     "network",
-    "memory",
     "bluetooth",
     "battery",
     "tray",
@@ -66,10 +66,6 @@
     "format": "{:%I:%M %p}",
     "tooltip": false,
     "format-alt": "{:%A %d %b %Y }"
-  },
-  "memory": {
-    "format": "{}%  ",
-    "interval": 5
   },
   "battery": {
     "bat": "BAT0",
@@ -140,6 +136,13 @@
     "on-click": "kcmshell6 kcm_bluetooth",
     "on-click-right": "bluetoothctl connect 3C:B0:ED:F4:84:C8",
     "on-click-middle": "bluetoothctl disconnect 3C:B0:ED:F4:84:C8"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
   }
   // "bluetooth": {
   //   "format": " {status}",

@@ -5,6 +5,12 @@ map("n", "<leader>rr", require("redox.nice").remove_comments, { desc = "Remove c
 map("n", "<leader>gp", require("redox.nice").open_plugin_github, { desc = "Open Plugin Github" })
 map("n", "<leader>ra", require("redox.nice").fix_unescaped_entities, { desc = "Fix unescaped entities" })
 map("n", "<leader>gu", require("redox.nice").open_git_changes, { desc = "Open all git changes" })
+map(
+  "n",
+  "<leader>rw",
+  require("redox.nice").fix_suggested_canonical_classes,
+  { desc = "Fix suggested canonical classes" }
+)
 
 -- vim.keymap.set({ "v" }, "<Leader>re", require("react-extract").extract_to_current_file)
 -- vim.keymap.set({ "v" }, "<Leader>rw", require("react-extract").extract_to_new_file)

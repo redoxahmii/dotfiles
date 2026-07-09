@@ -162,6 +162,60 @@ M.fix_unescaped_entities = function()
     end
   end
 end
+-- ├╴  The class `max-w-[540px]` can be written as `max-w-135`  (suggestCanonicalClasses) [159, 34]
+
+M.fix_suggested_canonical_classes = function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local diagnostics = vim.diagnostic.get(bufnr)
+
+  local tailwind_diagnostics = {}
+  for _, diagnostic in ipairs(diagnostics) do
+    if diagnostic.message and diagnostic.message:match("can be written as") then
+      table.insert(tailwind_diagnostics, diagnostic)
+    end
+  end
+
+  local diagnostics_by_line = {}
+  for _, diagnostic in ipairs(tailwind_diagnostics) do
+    local row = diagnostic.lnum
+    if not diagnostics_by_line[row] then
+      diagnostics_by_line[row] = {}
+    end
+    table.insert(diagnostics_by_line[row], diagnostic)
+  end
+
+  for row, line_diagnostics in pairs(diagnostics_by_line) do
+    local line_content = vim.api.nvim_buf_get_lines(bufnr, row, row + 1, false)[1]
+    if line_content then
+      table.sort(line_diagnostics, function(a, b)
+        return a.col > b.col
+      end)
+
+      local new_line = line_content
+      local offset = 0
+      local last_diagnostic_processed = nil
+
+      for _, diagnostic in ipairs(line_diagnostics) do
+        local old_class, new_class = diagnostic.message:match("The class `([^`]+)` can be written as `([^`]+)`")
+        if old_class and new_class then
+          local search_start = math.max(1, diagnostic.col + 1 + offset)
+          local idx = new_line:find(old_class, search_start, true)
+          if idx then
+            new_line = new_line:sub(1, idx - 1) .. new_class .. new_line:sub(idx + #old_class)
+            offset = offset + #new_class - #old_class
+            last_diagnostic_processed = diagnostic
+          end
+        end
+      end
+
+      vim.api.nvim_buf_set_lines(bufnr, row, row + 1, false, { new_line })
+
+      if last_diagnostic_processed then
+        vim.api.nvim_win_set_cursor(0, { row + 1, last_diagnostic_processed.col + offset })
+      end
+    end
+  end
+end
 
 M.open_git_changes = function()
   local cwd = vim.fn.getcwd()

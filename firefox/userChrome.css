@@ -8,6 +8,29 @@
   /* display: none !important; /* uncomment this line to hide the menu button */
 }
 
+/* Hide zoom indicator by default, show on hover/focus */
+#urlbar-zoom-button {
+  max-width: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition:
+    max-width 0.2s ease,
+    opacity 0.2s ease !important;
+}
+
+#nav-bar:hover #urlbar-zoom-button,
+#urlbar:hover #urlbar-zoom-button,
+#urlbar[focused="true"] #urlbar-zoom-button {
+  max-width: 50px !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  padding: 0 4px !important;
+  margin: 0 2px !important;
+}
+
 /* Window control buttons (min, resize and close) */
 .titlebar-buttonbox-container {
   display: none !important;
@@ -88,6 +111,9 @@
   /*  Tab border radius -- Changes the tabs rounding  */
   /*  Default: 6px  */
   --NavbarWidth: 43;
+
+  --uc-active-tab-width: clamp(100px, 30vw, 250px);
+  --uc-inactive-tab-width: clamp(100px, 20vw, 200px);
   /*  Default values: 36 - 43  */
   --TabsHeight: 36;
   /*  Minimum: 30  */
@@ -98,15 +124,29 @@
   --NavbarHeightSmall: calc(var(--TabsHeight) + var(--TabsBorder))
     /*  Only on small layout  */
     /*  Default: calc(var(--TabsHeight) + var(--TabsBorder))  */
-    /*  Default as a number: 44  */
-  ;
+    /*  Default as a number: 44  */;
+
+  /* Dynamic URL Bar Width Variables */
+  --uc-urlbar-min-width: 29vw;
+  --uc-urlbar-max-width: 27vw;
 }
 
-@media screen and (min-width: 1325px)
-/* Only the tabs space will grow from here */
-  {
+.tabbrowser-tab[selected][fadein]:not([pinned]):not(
+    tab-group[collapsed] .tabbrowser-tab
+  ) {
+  max-width: var(--uc-active-tab-width) !important;
+}
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]):not(
+    tab-group[collapsed] .tabbrowser-tab
+  ) {
+  max-width: var(--uc-inactive-tab-width) !important;
+}
+
+@media screen and (min-width: 1325px) /* Only the tabs space will grow from here */ {
   :root #nav-bar {
-    margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px) !important;
+    margin-top: calc(
+      var(--TabsHeight) * -1px - var(--TabsBorder) * 1px
+    ) !important;
     height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px);
   }
 
@@ -115,7 +155,9 @@
   }
 
   #nav-bar {
-    margin-right: calc(100vw - calc(1325px / 100 * var(--NavbarWidth))) !important;
+    margin-right: calc(
+      100vw - calc(1325px / 100 * var(--NavbarWidth))
+    ) !important;
     vertical-align: center !important;
   }
 
@@ -129,11 +171,11 @@
   }
 }
 
-@media screen and (min-width: 950px) and (max-width: 1324px)
-/* Both the tabs space and the navbar will grow */
-  {
+@media screen and (min-width: 950px) and (max-width: 1324px) /* Both the tabs space and the navbar will grow */ {
   :root #nav-bar {
-    margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px) !important;
+    margin-top: calc(
+      var(--TabsHeight) * -1px - var(--TabsBorder) * 1px
+    ) !important;
     height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px);
   }
 
@@ -161,9 +203,7 @@
   }
 }
 
-@media screen and (max-width: 949px)
-/* The window is not enough wide for a one line layout */
-  {
+@media screen and (max-width: 949px) /* The window is not enough wide for a one line layout */ {
   :root #nav-bar {
     padding: 0 5px 0 5px !important;
     height: calc(var(--NavbarHeightSmall) * 1px) !important;
@@ -178,6 +218,76 @@
     transition: margin-top 0.25s !important;
   }
 }
+
+/* ==========================================================================
+   DYNAMIC URL BAR ADJUSTMENT - Expands on focus (e.g., new tab)
+   ========================================================================== */
+
+/* Base transition for smooth animation */
+#nav-bar {
+  transition: width 0.25s ease !important;
+}
+
+/* For screens >= 950px (one-line layout) */
+@media screen and (min-width: 950px) {
+  /* Set initial URL bar width */
+  #nav-bar {
+    width: var(--uc-urlbar-min-width) !important;
+  }
+
+  /* When URL bar or its container is focused, expand it */
+  #urlbar:focus-within,
+  #urlbar[focused="true"],
+  #nav-bar:focus-within {
+    width: var(--uc-urlbar-max-width) !important;
+  }
+
+  /* Ensure the transition works smoothly */
+  #urlbar,
+  #urlbar-container {
+    transition: all 0.25s ease !important;
+  }
+}
+
+/* Alternative approach using :focus-within on parent for better compatibility */
+@media screen and (min-width: 950px) {
+  #navigator-toolbox:focus-within #nav-bar {
+    width: var(--uc-urlbar-max-width) !important;
+  }
+
+  #navigator-toolbox:focus-within #TabsToolbar {
+    /* Adjust tabs width when URL bar expands - optional */
+    margin-left: calc(var(--NavbarWidth) * 1vw - 9vw) !important;
+    transition: margin-left 0.25s ease !important;
+  }
+}
+
+/* For the specific case when urlbar is focused (new tab or click) */
+#urlbar[focused="true"] {
+  --urlbar-expand: var(--uc-urlbar-max-width) !important;
+}
+
+/* Ensure URL bar container respects the dynamic width */
+#urlbar-container {
+  min-width: 0px !important;
+  transition: all 0.25s ease !important;
+}
+
+#urlbar {
+  transition: all 0.25s ease !important;
+}
+
+#nav-bar,
+#TabsToolbar {
+  transition:
+    margin-top 0.25s,
+    margin-left 0.25s,
+    width 0.25s ease !important;
+}
+
+/* ==========================================================================
+   END OF DYNAMIC URL BAR FUNCTIONALITY
+   ========================================================================== */
 
 #nav-bar,
 #PersonalToolbar {
@@ -203,7 +313,7 @@
 }
 
 /*  Removes the background from the urlbar while not in use  */
-#urlbar:not(:hover):not([breakout][breakout-extend])>#urlbar-background {
+#urlbar:not(:hover):not([breakout][breakout-extend]) > #urlbar-background {
   box-shadow: none !important;
   background: #0000 !important;
 }

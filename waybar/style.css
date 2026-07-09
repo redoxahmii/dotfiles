@@ -26,6 +26,7 @@ window#waybar {
 #network,
 #pulseaudio,
 #bluetooth,
+#idle_inhibitor,
 #custom-spotify {
   border-radius: 20px;
   padding: 0 8px;
@@ -44,6 +45,7 @@ window#waybar {
 #bluetooth:hover,
 #custom-pomodoro:hover,
 #custom-power-toggle:hover,
+#idle_inhibitor:hover,
 #custom-spotify:hover {
   background: rgba(202, 207, 245, 0.1);
   /* Lightened Tokyo Night foreground */
