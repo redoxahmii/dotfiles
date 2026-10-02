@@ -19,7 +19,7 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                      "Inter 13";
-    background: rgba(0,0,0,0.1);
+    background:     #002731FF;
     background-alt: #073642FF;
     foreground:     #EEE8D5FF;
     selected:       #29a298FF;
