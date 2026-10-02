@@ -9,6 +9,12 @@
 - Use `hyprland.sh` if you want to install Hyprland.
   - These dotfiles are lean to make it compatible with EndeavourOS KDE.
 
+## Desktop themes
+
+Run `~/.config/hypr/scripts/switch-theme.sh solarized` once after setting up the symlinks, then use `solarized` or `tokyonight` to switch Rofi, Waybar, Kitty, Dunst, the desktop wallpaper and hypridle's next lock screen. New Neovim sessions use the selected colorscheme; existing ones can use `:colorscheme solarized-osaka` or `:colorscheme tokyonight`.
+
+The theme selection persists locally through symlinks and does not modify tracked theme files. Wallpaper paths in the switch script can be changed to your own images.
+
 ## Showcase
 ### Hyprland and Waybar
 ![image](https://github.com/user-attachments/assets/2bbd2dae-c560-40e9-a5fa-ced16ef01b01)

@@ -5,7 +5,7 @@
 #
 ## Rofi   : Power Menu
 #
-theme="$HOME/.config/rofi/themes/power.rasi"
+theme="$HOME/.config/rofi/themes/current/power.rasi"
 
 # CMDs
 lastlogin="$(last $USER | head -n1 | tr -s ' ' | cut -d' ' -f5,6,7)"

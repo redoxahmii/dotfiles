@@ -84,7 +84,9 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "solarized-osaka",
+      colorscheme = vim.fn.fnamemodify(vim.fn.resolve(vim.fn.expand("~/.config/rofi/themes/current")), ":t") == "tokyonight"
+          and "tokyonight"
+        or "solarized-osaka",
     },
   },
 }

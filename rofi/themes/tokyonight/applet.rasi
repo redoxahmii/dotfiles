@@ -3,7 +3,7 @@
  * Author : Aditya Shakya (adi1090x)
  * Github : @adi1090x
  * 
- * Rofi Theme File: Applets
+ * Rofi Theme File: Applets (Tokyo Night)
  * Rofi Version: 1.7.3
  **/
 
@@ -13,15 +13,8 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-* {
-    font:                        "JetBrains Mono Nerd Font 10";
-    background:                  #131D1F;
-    background-alt:              #183A43;
-    foreground:                  #FFFFFF;
-    selected:                    #649094;
-    active:                      #E9CC9D;
-    urgent:                      #FEA861;
-}
+@import "~/.config/rofi/colors/tokyonight.rasi"
+* { font: "JetBrains Mono Nerd Font 10"; }
 
 /*
 USE_ICON=YES
@@ -39,7 +32,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               50px;
+    border-radius:               30px;
     border-color:                @selected;
     cursor:                      "default";
     background-color:            @background;
@@ -48,9 +41,9 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
-    spacing:                     20px;
+    spacing:                     15px;
     margin:                      0px;
-    padding:                     20px;
+    padding:                     30px;
     background-color:            transparent;
     children:                    [ "inputbar", "message", "listview" ];
 }
@@ -58,20 +51,16 @@ mainbox {
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    spacing:                     25px;
-    padding:                     100px 50px;
+    spacing:                     10px;
+    padding:                     0px;
     border:                      0px;
-    border-radius:               40px;
+    border-radius:               100%;
     border-color:                @selected;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/i.jpg", width);
     text-color:                  @foreground;
-    children:                    [ "textbox-prompt-colon", "dummy", "prompt"];
+    children:                    [ "textbox-prompt-colon", "prompt"];
 }
 
-dummy{
-    background-color:            transparent;
-}
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
@@ -104,7 +93,7 @@ textbox {
     background-color:            inherit;
     text-color:                  inherit;
     vertical-align:              0.5;
-    horizontal-align:            0.5;
+    horizontal-align:            0.0;
 }
 
 /*****----- Listview -----*****/
@@ -116,7 +105,7 @@ listview {
     scrollbar:                   false;
     layout:                      vertical;
     
-    spacing:                     20px;
+    spacing:                     15px;
     background-color:            transparent;
     cursor:                      "default";
 }

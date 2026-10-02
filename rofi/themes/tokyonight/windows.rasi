@@ -1,0 +1,6 @@
+@import "apps.rasi"
+
+configuration {
+    modi: "window";
+    display-window: "Windows";
+}

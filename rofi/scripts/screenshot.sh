@@ -9,7 +9,7 @@ hyprshotDir="$HOME/Pictures/Screenshots"
 # Ensure screenshot directory exists
 
 # Import Current Theme
-theme="$HOME/.config/rofi/themes/applet.rasi"
+theme="$HOME/.config/rofi/themes/current/applet.rasi"
 
 # Theme Elements
 prompt='Screenshot'

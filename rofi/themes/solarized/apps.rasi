@@ -3,14 +3,17 @@
  * Author : Aditya Shakya (adi1090x)
  * Github : @adi1090x
  * 
- * Rofi Theme File: Windows
+ * Rofi Theme File: Apps (Solarized)
  * Rofi Version: 1.7.3
  **/
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "window";
+	modi:                       "drun,run,filebrowser,window";
     show-icons:                 true;
+    display-drun:               "APPS";
+    display-run:                "RUN";
+    display-filebrowser:        "FILES";
     display-window:             "WINDOW";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";

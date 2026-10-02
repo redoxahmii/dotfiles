@@ -5,7 +5,7 @@
 #
 ## Rofi   : Launcher (Modi Drun, Run, File Browser, Window)
 #
-theme="$HOME/.config/rofi/themes/windows.rasi"
+theme="$HOME/.config/rofi/themes/current/windows.rasi"
 
 ## Run
 rofi \

@@ -6,7 +6,7 @@
 ## Applets : Battery
 
 # Import Current Theme
-theme="$HOME/.config/rofi/themes/applet.rasi"
+theme="$HOME/.config/rofi/themes/current/applet.rasi"
 
 # Battery Info
 battery="$(acpi -b | cut -d',' -f1 | cut -d':' -f1)"

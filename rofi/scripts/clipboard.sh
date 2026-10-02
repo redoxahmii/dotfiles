@@ -5,6 +5,6 @@
 #
 ## Rofi   : Launcher (Modi Drun, Run, File Browser, Window)
 #
-theme="$HOME/.config/rofi/themes/clipboard.rasi"
+theme="$HOME/.config/rofi/themes/current/clipboard.rasi"
 
 cliphist list | rofi -theme "$theme" -dmenu | cliphist decode | wl-copy
