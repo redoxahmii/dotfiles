@@ -13,6 +13,8 @@
 
 Run `~/.config/hypr/scripts/switch-theme.sh solarized` once after setting up the symlinks, then use `solarized` or `tokyonight` to switch Rofi, Waybar, Kitty, Dunst, the desktop wallpaper and hypridle's next lock screen. New Neovim sessions use the selected colorscheme; existing ones can use `:colorscheme solarized-osaka` or `:colorscheme tokyonight`.
 
+Press **Super+Shift+T** to choose a theme from Rofi. The preview follows the highlighted choice, using the idle desktop screenshots in `rofi/images/`.
+
 The theme selection persists locally through symlinks and does not modify tracked theme files. Wallpaper paths in the switch script can be changed to your own images.
 
 ## Showcase

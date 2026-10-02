@@ -87,6 +87,8 @@ hl.bind(mainmod .. " + " .. "v", hl.dsp.exec_cmd("pkill -x rofi || " .. rofipath
 
 hl.bind(mainmod .. " + " .. "i", hl.dsp.exec_cmd("pkill -x rofi || " .. rofipath .. "scripts/calculator.sh"))
 
+hl.bind(mainmod .. " + " .. shiftmod .. " + " .. "t", hl.dsp.exec_cmd("pkill -x rofi || " .. rofipath .. "scripts/theme-picker.sh"))
+
 hl.bind(
 	altmod .. " + " .. ctrlmod .. " + " .. "l",
 	hl.dsp.exec_cmd("pkill -x rofi || " .. rofipath .. "scripts/power.sh")

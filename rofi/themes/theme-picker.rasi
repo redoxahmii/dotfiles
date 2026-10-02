@@ -1,0 +1,119 @@
+* {
+    font: "Inter 13";
+    background: #15161e;
+    surface: #1a1b26;
+    foreground: #c0caf5;
+}
+
+configuration {
+    show-icons: true;
+}
+
+window {
+    width: 900px;
+    height: 330px;
+    location: center;
+    anchor: center;
+    border-radius: 18px;
+    background-color: @background;
+}
+
+mainbox {
+    orientation: horizontal;
+    spacing: 0px;
+    children: [ "imagebox", "listbox" ];
+}
+
+imagebox {
+    width: 540px;
+    background-color: @background;
+    orientation: vertical;
+    children: [ "icon-current-entry", "textbox-current-entry" ];
+}
+
+icon-current-entry {
+    expand: true;
+    size: 90%;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+textbox-current-entry {
+    expand: false;
+    padding: 14px;
+    background-color: #15161ecc;
+    text-color: #c0caf5;
+    font: "Inter 10";
+}
+
+listbox {
+    orientation: vertical;
+    padding: 26px;
+    spacing: 18px;
+    background-color: @surface;
+    children: [ "inputbar", "message", "listview" ];
+}
+
+inputbar {
+    children: [ "prompt", "entry" ];
+    spacing: 12px;
+    background-color: transparent;
+}
+
+prompt {
+    font: "Inter Bold 17";
+    text-color: @foreground;
+    background-color: transparent;
+}
+
+entry {
+    placeholder: "Choose a look";
+    placeholder-color: #707795;
+    text-color: @foreground;
+    background-color: transparent;
+}
+
+message {
+    background-color: transparent;
+}
+
+textbox {
+    text-color: #a9b1d6;
+    background-color: transparent;
+}
+
+listview {
+    lines: 2;
+    columns: 1;
+    spacing: 12px;
+    scrollbar: false;
+    fixed-height: true;
+    background-color: transparent;
+}
+
+element {
+    padding: 18px;
+    border-radius: 12px;
+    background-color: #242636;
+    text-color: @foreground;
+    children: [ "element-text" ];
+}
+
+element normal.normal {
+    text-color: #7bc6bb;
+}
+
+element alternate.normal {
+    text-color: #bb9af7;
+}
+
+element selected.normal, element selected.alternate {
+    background-color: #414868;
+    text-color: #ffffff;
+}
+
+element-text {
+    vertical-align: 0.5;
+    background-color: transparent;
+    text-color: inherit;
+}
