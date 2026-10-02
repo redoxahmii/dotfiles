@@ -75,24 +75,24 @@ hl.bind(mainmod .. " + " .. "f", hl.dsp.window.fullscreen({ mode = 1 }))
 
 hl.bind(mainmod .. " + " .. ctrlmod .. " + " .. "f", hl.dsp.window.fullscreen({ mode = 1 }))
 
-hl.bind(altmod .. " + " .. "r", hl.dsp.exec_cmd("pkill -x rofi || ~/.config/rofi//launchers/type-2/launcher.sh"))
+hl.bind(altmod .. " + " .. "r", hl.dsp.exec_cmd("pkill -x rofi || " .. rofipath .. "scripts/apps.sh"))
 
-hl.bind(altmod .. " + " .. "space", hl.dsp.exec_cmd("pkill -x rofi || ~/.config/rofi//launchers/type-2/launcher.sh"))
+hl.bind(altmod .. " + " .. "space", hl.dsp.exec_cmd("pkill -x rofi || " .. rofipath .. "scripts/apps.sh"))
 
--- bind = $altmod ,space, exec, pkill -x rofi || $rofipath/scripts/launcher_t6
+-- bind = $altmod ,space, exec, pkill -x rofi || $rofipath/scripts/apps.sh
 
--- bind = space space, exec, pkill -x rofi || $rofipath/scripts/launcher_t6
+-- bind = space space, exec, pkill -x rofi || $rofipath/scripts/apps.sh
 
-hl.bind(mainmod .. " + " .. "v", hl.dsp.exec_cmd("pkill -x rofi || ~/.config/rofi//launchers/type-6/launcher3.sh"))
+hl.bind(mainmod .. " + " .. "v", hl.dsp.exec_cmd("pkill -x rofi || " .. rofipath .. "scripts/clipboard.sh"))
 
-hl.bind(mainmod .. " + " .. "i", hl.dsp.exec_cmd("pkill -x rofi || ~/.config/rofi//launchers/type-6/launcher4.sh"))
+hl.bind(mainmod .. " + " .. "i", hl.dsp.exec_cmd("pkill -x rofi || " .. rofipath .. "scripts/calculator.sh"))
 
 hl.bind(
 	altmod .. " + " .. ctrlmod .. " + " .. "l",
-	hl.dsp.exec_cmd("pkill -x rofi || ~/.config/rofi//scripts/powermenu_t5")
+	hl.dsp.exec_cmd("pkill -x rofi || " .. rofipath .. "scripts/power.sh")
 )
 
-hl.bind(altmod .. " + " .. "tab", hl.dsp.exec_cmd("pkill -x rofi || ~/.config/rofi//launchers/type-6/launcher2.sh"))
+hl.bind(altmod .. " + " .. "tab", hl.dsp.exec_cmd("pkill -x rofi || " .. rofipath .. "scripts/windows.sh"))
 
 hl.bind(altmod .. " + " .. "p", hl.dsp.window.pseudo())
 
@@ -172,7 +172,7 @@ hl.bind(ctrlmod .. " + " .. shiftmod .. " + " .. 5, hl.dsp.window.move({ workspa
 
 -- bind = $mainmod, print, exec,hyprshot_dir=$hyprshotdir hyprshot -m region
 
-hl.bind("print", hl.dsp.exec_cmd("pkill -x rofi || ~/.config/rofi//applets/bin/screenshot.sh"))
+hl.bind("print", hl.dsp.exec_cmd("pkill -x rofi || " .. rofipath .. "scripts/screenshot.sh"))
 
 -- example special workspace (scratchpad)
 
