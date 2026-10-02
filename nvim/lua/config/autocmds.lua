@@ -6,6 +6,16 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FocusGained", {
+  group = vim.api.nvim_create_augroup("explorer_focus_refresh", { clear = true }),
+  callback = function()
+    local explorers = Snacks.picker.get({ source = "explorer" })
+    for _, picker in ipairs(explorers) do
+      picker:action("explorer_update")
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = ".env*",
   command = "set ft=sh",

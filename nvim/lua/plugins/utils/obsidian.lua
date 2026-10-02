@@ -5,7 +5,7 @@ return {
     -- version = "*",
     lazy = false,
     dev = false,
-    cmd = "Obsidian quick_switch",
+    cmd = "Obsidian",
     ft = "markdown",
     keys = {
       { "<leader>wW", mode = "n", "<cmd>Obsidian quick_switch<cr>", desc = "Obsidian Notes" },
@@ -25,15 +25,15 @@ return {
     },
     opts = {
       legacy_commands = false,
-      frontmatter = {
-        enabled = function()
-          -- get name of current file
-          local file_name = vim.fn.expand("%:t")
-          if file_name == "daily.md" then
-            return true
-          end
-        end,
-      },
+      -- frontmatter = {
+      --   enabled = function()
+      --     -- get name of current file
+      --     local file_name = vim.fn.expand("%:t")
+      --     if file_name == "daily.md" then
+      --       return true
+      --     end
+      --   end,
+      -- },
       ui = {
         enable = false,
       },

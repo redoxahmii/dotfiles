@@ -53,15 +53,15 @@ return {
           local markdown_rainbow = { c.blue, c.yellow, c.green, c.red, c.magenta, c.cyan }
           for i, color in ipairs(markdown_rainbow) do
             hl["@markup.heading." .. i .. ".markdown"] = { fg = color, bold = true }
-            hl["Headline" .. i] = { bg = util.darken(color, 0.15) }
-            hl["RenderMarkdownH" .. i .. "Bg"] = { bg = util.darken(color, 0.15) }
+            -- hl["Headline" .. i] = { bg = util.darken(color, 0.15) }
+            -- hl["RenderMarkdownH" .. i .. "Bg"] = { bg = util.darken(color, 0.15) }
             hl["RenderMarkdownH" .. i .. "Fg"] = { fg = color, bold = true }
           end
           hl.RenderMarkdownBullet = { fg = c.orange }
-          hl["keyword.tsx"] = { fg = util.darken(c.green500, 0.85) }
-          hl["keyword.return.tsx"] = { fg = util.darken(c.green500, 0.85) }
-          hl["keyword.javascript"] = { fg = util.darken(c.green500, 0.85) }
-          hl["keyword.return.javascript"] = { fg = util.darken(c.green500, 0.85) }
+          -- hl["keyword.tsx"] = { fg = util.darken(c.green500, 0.85) }
+          -- hl["keyword.return.tsx"] = { fg = util.darken(c.green500, 0.85) }
+          -- hl["keyword.javascript"] = { fg = util.darken(c.green500, 0.85) }
+          -- hl["keyword.return.javascript"] = { fg = util.darken(c.green500, 0.85) }
           hl.CursorLineNr = { fg = c.cyan500, bold = true }
           hl.CursorLine = { bg = c.base04 }
           hl.LineNrAbove = { fg = c.orange700 }

@@ -4,17 +4,6 @@ return {
     event = "BufRead",
     version = "*",
     opts = {},
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    opts = {
-      current_line_blame = true,
-    },
-  },
-  {
-    "iamyoki/buffer-reopen.nvim",
-    lazy = false,
-    opts = {},
     keys = {
       { "<leader>bt", mode = { "n" }, "<cmd>BufferHistory reopen<cr>" },
     },
@@ -51,17 +40,6 @@ return {
   --   event = "BufRead",
   --   opts = {},
   -- },
-  {
-    "folke/todo-comments.nvim",
-    dev = false,
-    -- opts = {
-    --   uda = {
-    --     tags = {
-    --       sherpa = 20,
-    --     },
-    --   },
-    -- },
-  },
   -- {
   --   "LazyVim/LazyVim",
   --   version = false,

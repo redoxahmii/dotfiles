@@ -28,9 +28,9 @@ gui:
 git:
   merging:
   autoForwardBranches: none
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --dark --tabs=4 --paging=never --syntax-theme="Solarized (dark)"
+      command: delta --dark --tabs=4 --paging=never --syntax-theme="Solarized (dark)"
 customCommands:
   - key: "C"
     command: "cz"
