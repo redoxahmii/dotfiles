@@ -6,5 +6,5 @@ if pgrep -x "rofi" >/dev/null; then
   pkill -x rofi
 else
   # Launch the battery applet
-  $HOME/.config/rofi/applets/bin/battery.sh
+  "$HOME/.config/rofi/scripts/battery.sh"
 fi
